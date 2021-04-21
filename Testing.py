@@ -6,8 +6,14 @@ import torch.nn as nn
 import torch.nn.functional as F
 from ppotrainer import *
 from pponetwork import * 
-env = ProcgenGym3Env(num=1, env_name="fruitbot", render_mode="rgb_array")
-env = gym3.ViewerWrapper(env, info_key="rgb")
+import wandb
+if torch.cuda.is_available():
+    device = torch.device("cuda")
+else:
+    device = torch.device("cpu")
+num_actors = 64
+env = ProcgenGym3Env(num=num_actors, env_name="fruitbot", render_mode="rgb_array", distribution_mode="easy")
+#env = gym3.ViewerWrapper(env, info_key="rgb")
 step = 0
 # TODO: decrease action space to just 3 
 # [
@@ -34,21 +40,40 @@ step = 0
 #     print(f"step {step} reward {rew} first {first}, action {act}")
 #     step += 1
 action_map = [1, 4, 7, 9]
-network_params = {'input_dims': (64, 64, 9),
+concat_mode = False
+impala_params = {"in_channels": 3,
+                 "depths": [16, 32, 32],
+                 "out_dim": 4}
+cnn_params = {'input_dims': (64, 64, 9) if concat_mode else (64, 64, 3),
                     'num_actions': 4,
-                    'conv_layer_sizes': [32, 64, 64],
-                    'fc_layer_sizes': [512],
-                    'strides': [4, 2, 1],
+                    'conv_layer_sizes': [8, 16],
+                    'fc_layer_sizes': [128],
+                    'strides': [4, 2],
+                    'filter_sizes': [8, 4]
                     }
-trainer = PPOTrainer(num_iters = 1000,
-                     num_actors = 1,
-                     num_timesteps = 16, 
-                     discount_factor = 0.99,
+use_impala = True
+if use_impala:
+    network_params = impala_params
+else:
+    network_params = cnn_params
+wandb.init(project="cs182rlproject")
+trainer = PPOTrainer(num_iters = 5000,
+                     num_actors = num_actors,
+                     num_timesteps = 256, 
+                     discount_factor = 0.999,
                      epsilon = 0.2,
-                     c1 = 0.01,
-                     c2 = 0.1,
+                     c1 = 0.1,
+                     c2 = 0.01,
                      optimizer = torch.optim.Adam,
-                     lr= 3e-4,
+                     lr= 5e-4,
                      action_map=action_map,
+                     lambd=0.95,
+                     num_epochs=3,
+                     batch_size = 256*num_actors // 8,
+                     concat_mode=concat_mode,
+                     device=device,
+                     use_impala=use_impala,
                      ppo_network_args = network_params)
+
+#print(trainer._compute_advantage_single_actor(torch.ones([10]), torch.ones([10]), [2, 5]))
 trainer.train(env)
