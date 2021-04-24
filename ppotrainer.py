@@ -297,7 +297,8 @@ class PPOTrainer():
         max_rew = -1000
         for i in range(self.num_iters):
             print("Rolling out...")
-            obs, returns, _, acts, vals, logprobs, rews = self.rollout(env)
+            obs, returns, dones, acts, vals, logprobs, rews = self.rollout(env)
+            num_eps = torch.sum(dones)
             # Index of each element of batch_size
             # Create the indices array
             nbatch_train = int(np.ceil(len(obs) / self.batch_size))
@@ -313,8 +314,8 @@ class PPOTrainer():
                     mbinds = inds[start:end]
                     slices = (arr[mbinds] for arr in (obs, returns, acts, vals, logprobs))
                     log_dict = self.train_step(*slices)
-                    avg_dict = {key: avg_dict.get(key, 0) + log_dict[key] * nbatch / (nbatch_train * self.num_epochs) for key in log_dict.keys()}
-            avg_dict["rewards"] = torch.mean(torch.sum(rews, dim=-1))
+                    avg_dict = {key: avg_dict.get(key, 0) + log_dict[key] * nbatch_train / (nbatch * self.num_epochs) for key in log_dict.keys()}
+            avg_dict["rewards"] = torch.sum(rews) / num_eps
             wandb.log(avg_dict)
             print("Iteration {}".format(i))
             if avg_dict["rewards"] > max_rew:
