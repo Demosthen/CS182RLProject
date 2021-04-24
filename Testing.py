@@ -84,7 +84,7 @@ if separate_value:
     else:
         network_params = a_cnn_params
         value_params = v_cnn_params
-# wandb.init(project="cs182rlproject")
+wandb.init(project="cs182rlproject")
 trainer = PPOTrainer(num_iters = 5000,
                      num_actors = num_actors,
                      num_timesteps = 256, 

@@ -37,7 +37,7 @@ class PPOTrainer():
                 self.valuenetwork = IMPALA_CNN(**value_network_args).to(device=device)
             else:
                 self.valuenetwork = PPONetwork(**value_network_args).to(device=device)
-        # wandb.watch(self.pponetwork)
+        wandb.watch(self.pponetwork)
         self.num_iters = num_iters
         self.num_actors = num_actors
         self.num_timesteps = num_timesteps
@@ -278,12 +278,12 @@ class PPOTrainer():
                     avg_surr_loss += surr_loss * batch_sz / total_sz
             print("Iteration {} Training Loss {:2f} Avg Reward {:2f} Avg Entropy {:2f} Avg Val_loss {:2f} Avg surr gain: {:2f} Avg exp variance: {:2f}".format(i, avg_loss, avg_reward, avg_entropy, avg_val_loss, avg_surr_loss, ev_avg))
             
-            # wandb.log({"Training loss": avg_loss,
-            #          "Avg reward": avg_reward,
-            #          "Avg entropy": avg_entropy,
-            #          "Avg val loss": avg_val_loss,
-            #          "Avg surr loss": avg_surr_loss,
-            #          "Avg explained variance": ev_avg})
+            wandb.log({"Training loss": avg_loss,
+                     "Avg reward": avg_reward,
+                     "Avg entropy": avg_entropy,
+                     "Avg val loss": avg_val_loss,
+                     "Avg surr loss": avg_surr_loss,
+                     "Avg explained variance": ev_avg})
             if avg_reward > best_reward:
                 best_reward = avg_reward
                 torch.save(self.pponetwork, "model.pt")
@@ -337,7 +337,7 @@ class PPOTrainer():
                     log_dict = self.train_step(*slices)
                     avg_dict = {key: avg_dict.get(key, 0) + log_dict[key] * nbatch_train / (nbatch * self.num_epochs) for key in log_dict.keys()}
             avg_dict["rewards"] = torch.sum(rews) / num_eps
-            # wandb.log(avg_dict)
+            wandb.log(avg_dict)
             print("Iteration {}".format(i))
             if avg_dict["rewards"] > max_rew:
                 max_rew = avg_dict["rewards"]
