@@ -25,12 +25,19 @@ def explained_variance(ypred,y):
 class PPOTrainer():
     def __init__(self, num_iters : int, num_actors : int, num_timesteps : int, num_epochs : int, discount_factor : float,
                  batch_size : int, epsilon : float, c1 : float, c2 : float, optimizer : optim.Optimizer, lr : float, 
-                 lambd : float, action_map : list, ppo_network_args : dict, device = "cpu", concat_mode=False, use_impala=False):
+                 lambd : float, action_map : list, ppo_network_args : dict, value_network_args : dict, device = "cpu", 
+                 concat_mode=False, use_impala=False):
         if use_impala:
             self.pponetwork = IMPALA_CNN(**ppo_network_args).to(device=device)
         else:
             self.pponetwork = PPONetwork(**ppo_network_args).to(device=device)
-        wandb.watch(self.pponetwork)
+        self.separate_value = (value_network_args != None) # HERE
+        if self.separate_value:
+            if use_impala:
+                self.valuenetwork = IMPALA_CNN(**value_network_args).to(device=device)
+            else:
+                self.valuenetwork = PPONetwork(**value_network_args).to(device=device)
+        # wandb.watch(self.pponetwork)
         self.num_iters = num_iters
         self.num_actors = num_actors
         self.num_timesteps = num_timesteps
@@ -138,8 +145,13 @@ class PPOTrainer():
                 states[state_ctr: state_ctr + len(buffers)] = buffers
                 with torch.no_grad():
                     out = self.pponetwork(buffers)
-                    value = out[:, 0]
-                    logits = F.softmax(out[:, 1:], dim=-1)
+                    if self.separate_value: # HERE
+                        value = self.valuenetwork(buffers).squeeze(1)
+                        logits = F.softmax(out, dim=-1)
+                    else:
+                        value = out[:, 0]
+                        logits = F.softmax(out[:, 1:], dim=-1)
+                    
                 logitss.append(logits.detach())
                 act = []
                 for j in range(self.num_actors):
@@ -176,8 +188,12 @@ class PPOTrainer():
                 data_gen = self.get_batches(self.batch_size, states, advantages, alt_rewards, alt_values, logitss, alt_acts)
                 for advantage, reward, value, logit, state, act in data_gen:
                     out = self.pponetwork(state) # N x (1 + action_space)
-                    new_value = out[:, 0]
-                    new_logits = F.softmax(out[:, 1:], dim=-1)
+                    if self.separate_value: # HERE
+                        new_value = self.value_network(state).squeeze(1)
+                        new_logits = F.softmax(out, dim=-1)
+                    else:
+                        new_value = out[:, 0]
+                        new_logits = F.softmax(out[:, 1:], dim=-1)
                     new_dist = Categorical(new_logits)
                     old_dist = Categorical(logit)
                     new_log_probs = new_dist.log_prob(act)
@@ -191,9 +207,14 @@ class PPOTrainer():
                     norm_reward = (reward + 1.5) / 32.4
                     val_loss = torch.mean((new_value - norm_reward) ** 2)
                     entr = self.entropy(new_logits)
-                    loss = -surr_loss + self.c1 * val_loss - (self.c2 * entr)
+                    if self.separate_value: # HERE
+                        loss = -surr_loss - (self.c2 * entr)
+                    else:
+                        loss = -surr_loss + self.c1 * val_loss - (self.c2 * entr)
                     self.optimizer.zero_grad()
                     loss.backward()
+                    if self.separate_value:
+                        val_loss.backward()
                     self.optimizer.step()
                     batch_sz = len(advantage)
                     avg_loss += loss * batch_sz / total_sz
@@ -205,12 +226,12 @@ class PPOTrainer():
                     avg_surr_loss += surr_loss * batch_sz / total_sz
             print("Iteration {} Training Loss {:2f} Avg Reward {:2f} Avg Entropy {:2f} Avg Val_loss {:2f} Avg surr gain: {:2f} Avg exp variance: {:2f}".format(i, avg_loss, avg_reward, avg_entropy, avg_val_loss, avg_surr_loss, ev_avg))
             
-            wandb.log({"Training loss": avg_loss,
-                     "Avg reward": avg_reward,
-                     "Avg entropy": avg_entropy,
-                     "Avg val loss": avg_val_loss,
-                     "Avg surr loss": avg_surr_loss,
-                     "Avg explained variance": ev_avg})
+            # wandb.log({"Training loss": avg_loss,
+            #          "Avg reward": avg_reward,
+            #          "Avg entropy": avg_entropy,
+            #          "Avg val loss": avg_val_loss,
+            #          "Avg surr loss": avg_surr_loss,
+            #          "Avg explained variance": ev_avg})
             if avg_reward > best_reward:
                 best_reward = avg_reward
                 torch.save(self.pponetwork, "model.pt")

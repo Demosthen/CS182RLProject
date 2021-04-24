@@ -44,8 +44,28 @@ concat_mode = False
 impala_params = {"in_channels": 3,
                  "depths": [16, 32, 32],
                  "out_dim": 4}
+a_impala_params = {"in_channels": 3,
+                 "depths": [16, 32, 32],
+                 "out_dim": 3}
+v_impala_params = {"in_channels": 3,
+                 "depths": [16, 32, 32],
+                 "out_dim": 0}
 cnn_params = {'input_dims': (64, 64, 9) if concat_mode else (64, 64, 3),
                     'num_actions': 4,
+                    'conv_layer_sizes': [8, 16],
+                    'fc_layer_sizes': [128],
+                    'strides': [4, 2],
+                    'filter_sizes': [8, 4]
+                    }
+a_cnn_params = {'input_dims': (64, 64, 9) if concat_mode else (64, 64, 3),
+                    'num_actions': 3,
+                    'conv_layer_sizes': [8, 16],
+                    'fc_layer_sizes': [128],
+                    'strides': [4, 2],
+                    'filter_sizes': [8, 4]
+                    }
+v_cnn_params = {'input_dims': (64, 64, 9) if concat_mode else (64, 64, 3),
+                    'num_actions': 0,
                     'conv_layer_sizes': [8, 16],
                     'fc_layer_sizes': [128],
                     'strides': [4, 2],
@@ -56,7 +76,15 @@ if use_impala:
     network_params = impala_params
 else:
     network_params = cnn_params
-wandb.init(project="cs182rlproject")
+separate_value = True
+if separate_value:
+    if use_impala:
+        network_params = a_impala_params
+        value_params = v_impala_params
+    else:
+        network_params = a_cnn_params
+        value_params = v_cnn_params
+# wandb.init(project="cs182rlproject")
 trainer = PPOTrainer(num_iters = 5000,
                      num_actors = num_actors,
                      num_timesteps = 256, 
@@ -73,7 +101,8 @@ trainer = PPOTrainer(num_iters = 5000,
                      concat_mode=concat_mode,
                      device=device,
                      use_impala=use_impala,
-                     ppo_network_args = network_params)
+                     ppo_network_args = network_params,
+                     value_network_args = value_params)
 
 #print(trainer._compute_advantage_single_actor(torch.ones([10]), torch.ones([10]), [2, 5]))
 trainer.train(env)
