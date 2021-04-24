@@ -54,17 +54,16 @@ class ConvBlock(nn.Module):
 class FCBlock(nn.Module):
     def __init__(self, in_size, out_size):
         super().__init__()
-        print("hi", out_size, in_size)
         self.fc = nn.Linear(in_size, out_size)
         with torch.no_grad():
             self.fc.weight *= torch.sqrt(torch.tensor(2))
         self.batchnorm = nn.BatchNorm1d(out_size)
-        self.relu = nn.ReLU()
+        self.activation = nn.Tanh()
 
     def forward(self, input):
         x = self.fc(input)
         #x = self.batchnorm(x)
-        x = self.relu(x)
+        x = self.activation(x)
         return x
 
 class PPONetwork(nn.Module):
@@ -76,16 +75,20 @@ class PPONetwork(nn.Module):
         self.output_dims = num_actions + 1
         self.convs = []
         self.filter_sizes = filter_sizes
-        self.convs.append(ConvBlock(self.num_channels, filter_sizes[0], conv_layer_sizes[0], strides[0]))
-        for i in range(1, len(conv_layer_sizes)):
-            self.convs.append(ConvBlock(conv_layer_sizes[i-1], filter_sizes[i], conv_layer_sizes[i], strides[i]))
-        for i in range(len(self.convs)):
-            self._modules["conv" + str(i)] = self.convs[i]
+        if len(conv_layer_sizes) != 0:
+            self.convs.append(ConvBlock(self.num_channels, filter_sizes[0], conv_layer_sizes[0], strides[0]))
+            for i in range(1, len(conv_layer_sizes)):
+                self.convs.append(ConvBlock(conv_layer_sizes[i-1], filter_sizes[i], conv_layer_sizes[i], strides[i]))
+            for i in range(len(self.convs)):
+                self._modules["conv" + str(i)] = self.convs[i]
         
         power = np.prod([int(d) for d in strides])
-        #in_size = int(conv_layer_sizes[-1] * self.width * self.height / (power**2))
-        in_size = 324
-        self.fcs = [nn.Linear(in_size, fc_layer_sizes[0])]
+        if len(conv_layer_sizes) != 0:
+            #in_size = int(conv_layer_sizes[-1] * self.width * self.height / (power**2))
+            in_size = 324
+        else:
+            in_size = np.prod(input_dims)
+        self.fcs = [FCBlock(in_size, fc_layer_sizes[0])]
         for i in range(1, len(fc_layer_sizes)):
             self.fcs.append(FCBlock(fc_layer_sizes[i-1], fc_layer_sizes[i]))
         self.fcs.append(nn.Linear(fc_layer_sizes[-1], self.output_dims))
@@ -106,7 +109,7 @@ class PPONetwork(nn.Module):
         x = x.flatten(start_dim = 1)
         for i in range(len(self.fcs)):
             x = self.fcs[i](x)
-        return x
+        return x[:, 0], x[:, 1:] # value, probs
 
 def compute_size(width, filter_size, stride, padding):
     return (width - filter_size + 2 * padding) / stride + 1
@@ -143,8 +146,8 @@ class IMPALA_CNN(nn.Module):
         out = self.fc0(out)
         out = self.relu(out)
         out = self.fc1(out)
-        output = torch.cat([out, val_out], dim=-1)
-        return output
+        #output = torch.cat([out, val_out], dim=-1)
+        return val_out.squeeze(), out
 
         
     

@@ -52,8 +52,8 @@ v_impala_params = {"in_channels": 3,
                  "out_dim": 0}
 cnn_params = {'input_dims': (64, 64, 9) if concat_mode else (64, 64, 3),
                     'num_actions': 4,
-                    'conv_layer_sizes': [8, 16],
-                    'fc_layer_sizes': [128],
+                    'conv_layer_sizes': [],
+                    'fc_layer_sizes': [64, 64],
                     'strides': [4, 2],
                     'filter_sizes': [8, 4]
                     }
@@ -105,4 +105,4 @@ trainer = PPOTrainer(num_iters = 5000,
                      value_network_args = value_params)
 
 #print(trainer._compute_advantage_single_actor(torch.ones([10]), torch.ones([10]), [2, 5]))
-trainer.train(env)
+trainer.train2(env)

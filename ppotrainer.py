@@ -53,12 +53,41 @@ class PPOTrainer():
         self.batch_size = batch_size
         self.concat_mode = concat_mode
 
+    def compute_rtgs(self, batch_rews):
+        """
+            Compute the Reward-To-Go of each timestep in a batch given the rewards.
+            Parameters:
+                batch_rews - the rewards in a batch, Shape: (number of episodes, number of timesteps per episode)
+            Return:
+                batch_rtgs - the rewards to go, Shape: (number of timesteps in batch)
+        """
+        # The rewards-to-go (rtg) per episode per batch to return.
+        # The shape will be (num timesteps per episode)
+        batch_rtgs = []
+
+        # Iterate through each episode
+        for ep_rews in reversed(batch_rews):
+
+            discounted_reward = 0 # The discounted reward so far
+
+            # Iterate through all rewards in the episode. We go backwards for smoother calculation of each
+            # discounted return (think about why it would be harder starting from the beginning)
+            for rew in reversed(ep_rews):
+                discounted_reward = rew + discounted_reward * self.discount_factor
+                batch_rtgs.insert(0, discounted_reward)
+
+        # Convert the rewards-to-go into a tensor
+        batch_rtgs = torch.tensor(batch_rtgs, dtype=torch.float)
+
+        return batch_rtgs
+
     def _compute_advantage_single_actor(self, values : tensor, rewards : tensor, firsts : list):
         """Computes advantage of a single actor"""
+
         T = len(rewards)
         coeffs = (self.discount_factor * self.lambd) ** torch.arange(0, T-1, device=self.device)
         
-        ep_ends = firsts
+        ep_ends = [f for f in firsts if f != 0]
         ep_ends.append(T-1)
         ep_idx = 0
         deltas = rewards[:-1]
@@ -76,6 +105,7 @@ class PPOTrainer():
         advantages = torch.stack(advantages)
         return advantages
 
+
     def _compute_advantages(self, values : list, rewards : list, firsts : list): 
         """Computes advantage of all actors, takes values and rewards as a length N list of Tx1 tensors"""
         advantages = []
@@ -86,6 +116,23 @@ class PPOTrainer():
         advantages = torch.stack(advantages)
         return (advantages - torch.mean(advantages)) / (torch.std(advantages) + 0.00001)
 
+    def _compute_advantages2(self, mb_vals, mb_rews, mb_dones, last_vals, last_dones):
+        # discount/bootstrap off value fn
+        mb_returns = torch.zeros_like(mb_rews)
+        mb_advs = torch.zeros_like(mb_rews)
+        lastgaelam = 0
+        for t in reversed(range(self.num_timesteps)):
+            if t == self.num_timesteps - 1:
+                nextnonterminal = 1.0 - torch.tensor(last_dones, dtype=torch.int32, device=self.device)
+                nextvalues = last_vals
+            else:
+                nextnonterminal = 1.0 - mb_dones[t+1]
+                nextvalues = mb_vals[t+1]
+            delta = mb_rews[t] + self.discount_factor * nextvalues * nextnonterminal - mb_vals[t]
+            mb_advs[t] = lastgaelam = delta + self.discount_factor * self.lambd * nextnonterminal * lastgaelam
+        mb_returns = mb_advs + mb_vals
+        return mb_returns
+
     def entropy(self, dist):
         return -torch.mean(torch.log(dist + 0.00000001) * dist)
 
@@ -95,13 +142,13 @@ class PPOTrainer():
             num_batches += 1
         indices = np.random.permutation(num_batches)
         for i in indices:
-            yield (advantages[i * batch_size: min((i+1) * batch_size, len(advantages))],
-                    rewards[i * batch_size: min((i+1) * batch_size, len(rewards))],
-                    values[i * batch_size: min((i+1) * batch_size, len(values))],
-                    logits[i * batch_size: min((i+1) * batch_size, len(logits))],
-                    states[i * batch_size: min((i+1) * batch_size, len(states))],
-                    acts[i * batch_size: min((i+1) * batch_size, len(acts))])
-
+            idxs = indices[i * batch_size: min((i+1) * batch_size, len(advantages))]
+            yield (advantages[indices],
+                    rewards[indices],
+                    values[indices],
+                    logits[indices],
+                    states[indices],
+                    acts[indices])
     def train(self, env : ProcgenGym3Env):
         self.pponetwork.train()
         obs_dims = list(env.ob_space["rgb"].shape)
@@ -154,11 +201,15 @@ class PPOTrainer():
                     
                 logitss.append(logits.detach())
                 act = []
-                for j in range(self.num_actors):
-                    dis = Categorical(logits[j])
-                    act_ = dis.sample().detach()
-                    act.append(act_.cpu().numpy().squeeze())
-                    alt_acts[j, t] = act_
+                dis = Categorical(logits)
+                act_ = dis.sample().detach()
+                act = act_.cpu().numpy().squeeze()
+                alt_acts[:, t] = act_
+                # for j in range(self.num_actors):
+                #     dis = Categorical(logits[j])
+                #     act_ = dis.sample().detach()
+                #     act.append(act_.cpu().numpy().squeeze())
+                #     alt_acts[j, t] = act_
                 values.append(value.detach())
                 alt_values[:, t] = value
                 
@@ -204,13 +255,14 @@ class PPOTrainer():
                     #advantage = advantage.view([-1, 1])
                     clamped_reward = ratio.clamp(min=1-self.epsilon, max=1+self.epsilon)
                     surr_loss = torch.mean(torch.min(ratio * advantage, clamped_reward * advantage))
-                    norm_reward = (reward + 1.5) / 32.4
+                    norm_reward = reward
+                    #norm_reward = (reward + 1.5) / 32.4
                     val_loss = torch.mean((new_value - norm_reward) ** 2)
-                    entr = self.entropy(new_logits)
                     if self.separate_value: # HERE
                         loss = -surr_loss - (self.c2 * entr)
                     else:
                         loss = -surr_loss + self.c1 * val_loss - (self.c2 * entr)
+                    entr = torch.mean(new_dist.entropy())#self.entropy(new_logits)
                     self.optimizer.zero_grad()
                     loss.backward()
                     if self.separate_value:
@@ -235,6 +287,111 @@ class PPOTrainer():
             if avg_reward > best_reward:
                 best_reward = avg_reward
                 torch.save(self.pponetwork, "model.pt")
+
+    def train_step(self, obs, returns, acts, vals, logprobs):
+        # Here we calculate advantage A(s,a) = R + yV(s') - V(s)
+        # Returns = R + yV(s')
+        advs = returns - vals
+
+        # Normalize the advantages
+        advs = (advs - advs.mean()) / (advs.std() + 1e-8)
+
+        new_val, new_out = self.pponetwork(obs)
+        new_logits = F.softmax(new_out, dim=-1)
+        new_dist = Categorical(new_logits)
+        new_logprobs = new_dist.log_prob(acts)
+        ratio = torch.exp(new_logprobs - logprobs)
+        clamped_ratio = ratio.clamp(1-self.epsilon, 1+self.epsilon)
+        surr_loss = -torch.mean(torch.min(ratio * advs, clamped_ratio * advs))
+        entropy = torch.mean(new_dist.entropy())
+        vf_loss = nn.MSELoss()(new_val, returns)
+        loss = surr_loss + vf_loss * self.c1 - entropy * self.c2
+        self.optimizer.zero_grad()
+        loss.backward()
+        self.optimizer.step()
+        return {"loss": loss,
+                "surr_loss": surr_loss,
+                "vf_loss": vf_loss,
+                "entropy": entropy}
+
+    def train2(self, env : ProcgenGym3Env):
+        max_rew = -1000
+        for i in range(self.num_iters):
+            print("Rolling out...")
+            obs, returns, dones, acts, vals, logprobs, rews = self.rollout(env)
+            num_eps = torch.sum(dones)
+            # Index of each element of batch_size
+            # Create the indices array
+            nbatch_train = int(np.ceil(len(obs) / self.batch_size))
+            nbatch = self.num_actors * self.num_timesteps
+            inds = np.arange(nbatch)
+            for _ in range(self.num_epochs):
+                # Randomize the indexes
+                np.random.shuffle(inds)
+                avg_dict = {}
+                # 0 to batch_size with batch_train_size step
+                for start in range(0, nbatch, nbatch_train):
+                    end = start + nbatch_train
+                    mbinds = inds[start:end]
+                    slices = (arr[mbinds] for arr in (obs, returns, acts, vals, logprobs))
+                    log_dict = self.train_step(*slices)
+                    avg_dict = {key: avg_dict.get(key, 0) + log_dict[key] * nbatch_train / (nbatch * self.num_epochs) for key in log_dict.keys()}
+            avg_dict["rewards"] = torch.sum(rews) / num_eps
+            # wandb.log(avg_dict)
+            print("Iteration {}".format(i))
+            if avg_dict["rewards"] > max_rew:
+                max_rew = avg_dict["rewards"]
+                torch.save(self.pponetwork, "model.pt")
+
+
+    def process_obs(self, obs):
+        obs = obs["rgb"] / 255.0
+        obs = torch.tensor(obs, device=self.device, dtype=torch.float32)
+        obs = obs.permute(0, 3, 1, 2)
+        return obs
+
+    def rollout(self, env : ProcgenGym3Env):
+        nenvs = self.num_actors
+        mb_obs, mb_rews, mb_acts, mb_vals, mb_dones, mb_logprobs = [], [] , [] ,[], [], []
+        _, obs, _ = env.observe()
+        dones = [False for _ in range(nenvs)]
+        obs = self.process_obs(obs)
+        with torch.no_grad():
+            for _ in range(self.num_timesteps):
+                vals, out = self.pponetwork(obs)
+                probs = F.softmax(out, dim=-1)
+                dist = Categorical(probs)
+                acts = dist.sample()
+                log_probs = dist.log_prob(acts)
+                mb_obs.append(obs.clone())
+                mb_acts.append(acts)
+                mb_vals.append(vals)
+                mb_logprobs.append(log_probs)
+                mb_dones.append(dones)
+                mapped_acts = [self.action_map[action.cpu().numpy()] for action in acts]
+                env.act(np.array(mapped_acts))
+                rews, obs, dones = env.observe()
+                obs = self.process_obs(obs)
+                mb_rews.append(torch.tensor(rews)) # Append reward after action
+            #batch of steps to batch of rollouts
+            mb_obs = torch.stack(mb_obs).to(device=self.device)
+            mb_rews = torch.stack(mb_rews).to(device = self.device)
+            mb_acts = torch.stack(mb_acts).to(device = self.device)
+            mb_vals = torch.stack(mb_vals).to(device = self.device)
+            mb_logprobs = torch.stack(mb_logprobs).to(device = self.device)
+            mb_dones = torch.tensor(mb_dones, dtype=torch.int32, device = self.device)
+            last_vals, _ = self.pponetwork(obs)
+            mb_returns = self._compute_advantages2(mb_vals, mb_rews, mb_dones, last_vals, dones)
+            return (*map(sf01, (mb_obs, mb_returns, mb_dones, mb_acts, mb_vals, mb_logprobs, )), mb_rews)
+
+# obs, returns, masks, actions, values, neglogpacs, states = runner.run()
+def sf01(arr):
+    """
+    swap and then flatten axes 0 and 1
+    """
+    s = arr.shape
+    return arr.swapaxes(0, 1).reshape(s[0] * s[1], *s[2:])
+
 
 
 
