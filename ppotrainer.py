@@ -264,9 +264,11 @@ class PPOTrainer():
                         loss = -surr_loss + self.c1 * val_loss - (self.c2 * entr)
                     entr = torch.mean(new_dist.entropy())#self.entropy(new_logits)
                     self.optimizer.zero_grad()
-                    loss.backward()
                     if self.separate_value:
+                        loss.backward(retain_graph=True)
                         val_loss.backward()
+                    else:
+                        loss.backward()
                     self.optimizer.step()
                     batch_sz = len(advantage)
                     avg_loss += loss * batch_sz / total_sz
