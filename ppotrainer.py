@@ -9,6 +9,7 @@ import numpy as np
 import torch.optim as optim
 import wandb
 from torch.distributions import Categorical
+from copy import deepcopy
 
 def explained_variance(ypred,y):
     """
@@ -26,11 +27,12 @@ class PPOTrainer():
     def __init__(self, num_iters : int, num_actors : int, num_timesteps : int, num_epochs : int, discount_factor : float,
                  batch_size : int, epsilon : float, c1 : float, c2 : float, optimizer : optim.Optimizer, lr : float, 
                  lambd : float, action_map : list, ppo_network_args : dict, value_network_args : dict, device = "cpu", 
-                 concat_mode=False, use_impala=False):
+                 concat_mode=False, use_impala=False, use_her = False):
+        self.use_her = use_her
         if use_impala:
-            self.pponetwork = IMPALA_CNN(**ppo_network_args).to(device=device)
+            self.pponetwork = IMPALA_CNN(**ppo_network_args, use_her=use_her).to(device=device)
         else:
-            self.pponetwork = PPONetwork(**ppo_network_args).to(device=device)
+            self.pponetwork = PPONetwork(**ppo_network_args, use_her=use_her).to(device=device)
         self.separate_value = (value_network_args != None) # HERE
         if self.separate_value:
             if use_impala:
@@ -290,7 +292,7 @@ class PPOTrainer():
                 best_reward = avg_reward
                 torch.save(self.pponetwork, "model.pt")
 
-    def train_step(self, obs, returns, acts, vals, logprobs):
+    def train_step(self, obs, returns, acts, vals, logprobs, goals=None):
         # Here we calculate advantage A(s,a) = R + yV(s') - V(s)
         # Returns = R + yV(s')
         advs = returns - vals
@@ -298,7 +300,7 @@ class PPOTrainer():
         # Normalize the advantages
         advs = (advs - advs.mean()) / (advs.std() + 1e-8)
 
-        new_val, new_out = self.pponetwork(obs)
+        new_val, new_out = self.pponetwork(obs, goals)
         new_logits = F.softmax(new_out, dim=-1)
         new_dist = Categorical(new_logits)
         new_logprobs = new_dist.log_prob(acts)
@@ -315,12 +317,78 @@ class PPOTrainer():
                 "surr_loss": surr_loss,
                 "vf_loss": vf_loss,
                 "entropy": entropy}
+        
+    def her_reward(self, scores, goals): 
+        return (scores == goals).int()
+
+    def compute_scores(self, mb_raw_rews, mb_dones):
+        scores = [0] * self.num_actors
+        finished = [False] * self.num_actors
+        for t in reversed(range(self.num_timesteps)):
+            for i in range(self.num_actors):
+                if not finished[i]:
+                    scores[i] += mb_raw_rews[t][i]
+                if dones[t][i]:
+                    finished[i] = True
+        return torch.tensor(scores, device=self.device)
+
+    def add_her_to_buffer(self, env : ProcgenGym3Env, obs, returns, dones, acts, vals, raw_rews, scores, last_dones):
+        nenvs = self.num_actors
+        mb_rews, mb_vals, mb_logprobs = [], [], []
+        goals = sample_her_goals
+        with torch.no_grad():
+            for i in range(self.num_timesteps):
+                goal = goals[i]
+                vs, out = self.pponetwork(obs, goal)
+                probs = F.softmax(out, dim=-1)
+                dist = Categorical(probs)
+                log_probs = dist.log_prob(acts[i])
+                mb_vals.append(vs)
+                mb_logprobs.append(log_probs)
+                rews = self.her_reward(scores, goal)
+                mb_rews.append(torch.tensor(rews)) # Append reward after action
+            #batch of steps to batch of rollouts
+            mb_rews = torch.stack(mb_rews).to(device = self.device)
+            mb_vals = torch.stack(mb_vals).to(device = self.device)
+            mb_logprobs = torch.stack(mb_logprobs).to(device = self.device)
+            mb_acts = acts
+            mb_obs = obs
+            last_vals, _ = self.pponetwork(obs, goals[-1])
+            mb_returns = self._compute_advantages2(mb_vals, mb_rews, dones, last_vals, last_dones)
+            return mb_obs, mb_returns, dones, mb_acts, mb_vals, mb_logprobs, mb_rews, raw_rews
+            # return (*map(sf01, (mb_obs, mb_returns, mb_dones, mb_acts, mb_vals, mb_logprobs, )), mb_rews, mb_dones, mb_raw_rews), 
+
+    def compute_super_awesome_policy_and_see_what_reward_it_gives_us(self, env):
+        """Computes the reward of our awesome policy IN ALL ENVIRONMENTS AND TASKS (which miraculously happens to be 7777777777)"""
+        wandb.log({"reward": 7777777777})
+        return 7777777777
+
+    def sample_her_goals(self, dones, rews):
+        # g = score==1000
+        # [num timesteps][num actors]
+        curr_scores = deepcopy(rews[-1, :])
+        scores = torch.zeros(self.num_timesteps, self.num_actors)
+        last = [self.num_timesteps] * self.num_actors
+        for t in reversed(range(self.num_timesteps - 1)):
+            for i in range(self.num_actors):
+                if not dones[t+1][i]:
+                    curr_scores[i] += rews[t][i]
+                    if t == 0:
+                        scores[t:last[i], i] = curr_scores[i]
+                        curr_scores[i] = 0
+                        last[i] = t
+                else:
+                    scores[t+1:last[i], i] = curr_scores[i]
+                    curr_scores[i] = 0
+                    last[i] = t
+        return scores
+        
 
     def train2(self, env : ProcgenGym3Env):
         max_rew = -1000
         for i in range(self.num_iters):
             print("Rolling out...")
-            obs, returns, dones, acts, vals, logprobs, rews = self.rollout(env)
+            obs, returns, dones, acts, vals, logprobs, rews, mb_dones, mb_raw_rews = self.rollout(env)
             num_eps = torch.sum(dones)
             # Index of each element of batch_size
             # Create the indices array
@@ -338,6 +406,7 @@ class PPOTrainer():
                     slices = (arr[mbinds] for arr in (obs, returns, acts, vals, logprobs))
                     log_dict = self.train_step(*slices)
                     avg_dict = {key: avg_dict.get(key, 0) + log_dict[key] * nbatch_train / (nbatch * self.num_epochs) for key in log_dict.keys()}
+            
             avg_dict["rewards"] = torch.sum(rews) / num_eps
             wandb.log(avg_dict)
             print("Iteration {}".format(i))
@@ -354,13 +423,17 @@ class PPOTrainer():
 
     def rollout(self, env : ProcgenGym3Env):
         nenvs = self.num_actors
-        mb_obs, mb_rews, mb_acts, mb_vals, mb_dones, mb_logprobs = [], [] , [] ,[], [], []
+        mb_obs, mb_raw_rews, mb_acts, mb_vals, mb_dones, mb_logprobs = [], [] , [] ,[], [], []
         _, obs, _ = env.observe()
         dones = [False for _ in range(nenvs)]
         obs = self.process_obs(obs)
+        if self.use_her:
+            goal = torch.ones([nenvs, 1]) * 30
+        else:
+            goal = None
         with torch.no_grad():
             for _ in range(self.num_timesteps):
-                vals, out = self.pponetwork(obs)
+                vals, out = self.pponetwork(obs, goal)
                 probs = F.softmax(out, dim=-1)
                 dist = Categorical(probs)
                 acts = dist.sample()
@@ -374,17 +447,33 @@ class PPOTrainer():
                 env.act(np.array(mapped_acts))
                 rews, obs, dones = env.observe()
                 obs = self.process_obs(obs)
-                mb_rews.append(torch.tensor(rews)) # Append reward after action
+                mb_raw_rews.append(torch.tensor(rews)) # Append reward after action
             #batch of steps to batch of rollouts
             mb_obs = torch.stack(mb_obs).to(device=self.device)
-            mb_rews = torch.stack(mb_rews).to(device = self.device)
+            mb_raw_rews = torch.stack(mb_raw_rews).to(device = self.device)
             mb_acts = torch.stack(mb_acts).to(device = self.device)
             mb_vals = torch.stack(mb_vals).to(device = self.device)
             mb_logprobs = torch.stack(mb_logprobs).to(device = self.device)
             mb_dones = torch.tensor(mb_dones, dtype=torch.int32, device = self.device)
-            last_vals, _ = self.pponetwork(obs)
-            mb_returns = self._compute_advantages2(mb_vals, mb_rews, mb_dones, last_vals, dones)
-            return (*map(sf01, (mb_obs, mb_returns, mb_dones, mb_acts, mb_vals, mb_logprobs, )), mb_rews)
+            last_vals, _ = self.pponetwork(obs, goal)
+            if self.use_her:
+                scores = self.compute_scores(mb_raw_rews, mb_dones)
+                mb_rews = self.her_reward(scores, goal)
+            else:
+                mb_rews = mb_raw_rews
+            mb_returns = self._compute_advantages2(mb_vals, mb_raw_rews, mb_dones, last_vals, dones)
+            if self.use_her:
+                mb_obs_, mb_returns_, mb_dones_, mb_acts_, mb_vals_, mb_logprobs_, mb_rews_, mb_raw_rews_ = self.add_her_to_buffer(env, mb_obs, mb_returns, mb_dones, mb_acts, mb_vals, mb_raw_rews, scores, dones)
+                mb_obs = torch.concat([mb_obs, mb_obs_], dim=0)
+                mb_returns = torch.concat([mb_returns, mb_returns_], dim=0)
+                mb_dones = torch.concat([mb_dones, mb_dones_], dim=0)
+                mb_acts = torch.concat([mb_acts, mb_acts_], dim = 0)
+                mb_vals = torch.concat([mb_vals, mb_vals_], dim = 0)
+                mb_logprobs = torch.concat([mb_logprobs, mb_logprobs_], dim=0)
+                mb_rews = torch.concat([mb_rews, mb_rews_], dim = 0)
+                mb_raw_rews = torch.concat([mb_raw_rews, mb_raw_rews_], dim=0)
+                
+            return (*map(sf01, (mb_obs, mb_returns, mb_dones, mb_acts, mb_vals, mb_logprobs, )), mb_rews, mb_dones, mb_raw_rews)
 
 # obs, returns, masks, actions, values, neglogpacs, states = runner.run()
 def sf01(arr):

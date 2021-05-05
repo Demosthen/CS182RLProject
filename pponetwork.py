@@ -67,7 +67,7 @@ class FCBlock(nn.Module):
         return x
 
 class PPONetwork(nn.Module):
-    def __init__(self, input_dims, num_actions, conv_layer_sizes, fc_layer_sizes, strides, filter_sizes): 
+    def __init__(self, input_dims, num_actions, conv_layer_sizes, fc_layer_sizes, strides, filter_sizes, use_her=False): 
         super().__init__()
         self.input_dims = input_dims
         self.width, self.height, self.num_channels = input_dims #64 x 64 x 9
@@ -75,6 +75,7 @@ class PPONetwork(nn.Module):
         self.output_dims = num_actions + 1
         self.convs = []
         self.filter_sizes = filter_sizes
+        self.use_her = use_her
         if len(conv_layer_sizes) != 0:
             self.convs.append(ConvBlock(self.num_channels, filter_sizes[0], conv_layer_sizes[0], strides[0]))
             for i in range(1, len(conv_layer_sizes)):
@@ -88,6 +89,8 @@ class PPONetwork(nn.Module):
             in_size = 324
         else:
             in_size = np.prod(input_dims)
+        if self.use_her:
+            in_size += 1
         self.fcs = [FCBlock(in_size, fc_layer_sizes[0])]
         for i in range(1, len(fc_layer_sizes)):
             self.fcs.append(FCBlock(fc_layer_sizes[i-1], fc_layer_sizes[i]))
@@ -95,8 +98,11 @@ class PPONetwork(nn.Module):
         for i in range(len(self.fcs)):
             self._modules["fc" + str(i)] = self.fcs[i]
         
-    def forward(self, x : Tensor):
+    def forward(self, x : Tensor, goal=None):
         skip = torch.zeros([1])
+        if self.use_her and goal is None:
+            print("please specify a goal with HER")
+            return
         for i in range(len(self.convs)):
             x = self.convs[i](x)
             if i % 2 == 0:
@@ -107,6 +113,8 @@ class PPONetwork(nn.Module):
                 skip = x
         # print(x.shape)
         x = x.flatten(start_dim = 1)
+        if self.use_her:
+            x = torch.concat([x, goal], dim=-1)
         for i in range(len(self.fcs)):
             x = self.fcs[i](x)
         return x[:, 0], x[:, 1:] # value, probs
@@ -115,7 +123,7 @@ def compute_size(width, filter_size, stride, padding):
     return (width - filter_size + 2 * padding) / stride + 1
 
 class IMPALA_CNN(nn.Module):
-    def __init__(self, in_channels, depths, out_dim):
+    def __init__(self, in_channels, depths, out_dim, use_her=False):
         super().__init__()
         self.convs = [ConvSequence(in_channels, depths[0])]
         
@@ -125,21 +133,27 @@ class IMPALA_CNN(nn.Module):
             self._modules["conv" + str(i)] = self.convs[i]
         size = 64 // (2 ** len(depths))
         size = size ** 2
-        size = size * depths[-1]
+        size = size * depths[-1] + 1
         self.relu = nn.ReLU()
         self.fc0 = nn.Linear(size, 256)
         self.fc1 = nn.Linear(256, out_dim)
         self.val_fc0 = nn.Linear(size, 256)
         self.val_fc1 = nn.Linear(256, 1)
         self.out_dim = out_dim
+        self.use_her = use_her
     
-    def forward(self, input):
+    def forward(self, input, goal=None):
         out = input
+        if self.use_her and goal is None:
+            print("please specify a goal with HER")
+            return
         for i in range(len(self.convs)):
             out = self.convs[i](out)
         
         out = torch.flatten(out, start_dim=1)
         out = self.relu(out)
+        if self.use_her:
+            out = torch.cat([out, goal], dim=-1)
         val_out = self.val_fc0(out)
         val_out = self.relu(val_out)
         val_out = self.val_fc1(val_out)
