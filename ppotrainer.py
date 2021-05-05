@@ -25,11 +25,18 @@ def explained_variance(ypred,y):
 class PPOTrainer():
     def __init__(self, num_iters : int, num_actors : int, num_timesteps : int, num_epochs : int, discount_factor : float,
                  batch_size : int, epsilon : float, c1 : float, c2 : float, optimizer : optim.Optimizer, lr : float, 
-                 lambd : float, action_map : list, ppo_network_args : dict, device = "cpu", concat_mode=False, use_impala=False):
+                 lambd : float, action_map : list, ppo_network_args : dict, value_network_args : dict, device = "cpu", 
+                 concat_mode=False, use_impala=False):
         if use_impala:
             self.pponetwork = IMPALA_CNN(**ppo_network_args).to(device=device)
         else:
             self.pponetwork = PPONetwork(**ppo_network_args).to(device=device)
+        self.separate_value = (value_network_args != None) # HERE
+        if self.separate_value:
+            if use_impala:
+                self.valuenetwork = IMPALA_CNN(**value_network_args).to(device=device)
+            else:
+                self.valuenetwork = PPONetwork(**value_network_args).to(device=device)
         wandb.watch(self.pponetwork)
         self.num_iters = num_iters
         self.num_actors = num_actors
@@ -185,8 +192,13 @@ class PPOTrainer():
                 states[state_ctr: state_ctr + len(buffers)] = buffers
                 with torch.no_grad():
                     out = self.pponetwork(buffers)
-                    value = out[:, 0]
-                    logits = F.softmax(out[:, 1:], dim=-1)
+                    if self.separate_value: # HERE
+                        value = self.valuenetwork(buffers).squeeze(1)
+                        logits = F.softmax(out, dim=-1)
+                    else:
+                        value = out[:, 0]
+                        logits = F.softmax(out[:, 1:], dim=-1)
+                    
                 logitss.append(logits.detach())
                 act = []
                 dis = Categorical(logits)
@@ -227,8 +239,12 @@ class PPOTrainer():
                 data_gen = self.get_batches(self.batch_size, states, advantages, alt_rewards, alt_values, logitss, alt_acts)
                 for advantage, reward, value, logit, state, act in data_gen:
                     out = self.pponetwork(state) # N x (1 + action_space)
-                    new_value = out[:, 0]
-                    new_logits = F.softmax(out[:, 1:], dim=-1)
+                    if self.separate_value: # HERE
+                        new_value = self.value_network(state).squeeze(1)
+                        new_logits = F.softmax(out, dim=-1)
+                    else:
+                        new_value = out[:, 0]
+                        new_logits = F.softmax(out[:, 1:], dim=-1)
                     new_dist = Categorical(new_logits)
                     old_dist = Categorical(logit)
                     new_log_probs = new_dist.log_prob(act)
@@ -242,10 +258,17 @@ class PPOTrainer():
                     norm_reward = reward
                     #norm_reward = (reward + 1.5) / 32.4
                     val_loss = torch.mean((new_value - norm_reward) ** 2)
+                    if self.separate_value: # HERE
+                        loss = -surr_loss - (self.c2 * entr)
+                    else:
+                        loss = -surr_loss + self.c1 * val_loss - (self.c2 * entr)
                     entr = torch.mean(new_dist.entropy())#self.entropy(new_logits)
-                    loss = -surr_loss + self.c1 * val_loss - (self.c2 * entr)
                     self.optimizer.zero_grad()
-                    loss.backward()
+                    if self.separate_value:
+                        loss.backward(retain_graph=True)
+                        val_loss.backward()
+                    else:
+                        loss.backward()
                     self.optimizer.step()
                     batch_sz = len(advantage)
                     avg_loss += loss * batch_sz / total_sz
