@@ -423,7 +423,7 @@ class PPOTrainer():
 
     def rollout(self, env : ProcgenGym3Env):
         nenvs = self.num_actors
-        mb_obs, mb_raw_rews, mb_acts, mb_vals, mb_dones, mb_logprobs = [], [] , [] ,[], [], []
+        mb_obs, mb_raw_rews, mb_acts, mb_vals, mb_dones, mb_logprobs = [], [], [], [], [], []
         _, obs, _ = env.observe()
         dones = [False for _ in range(nenvs)]
         obs = self.process_obs(obs)

@@ -1,0 +1,112 @@
+2021-05-04 20:06:22,844 INFO    MainThread:38644 [internal.py:wandb_internal():91] W&B internal server running at pid: 38644, started at: 2021-05-04 20:06:22.835432
+2021-05-04 20:06:22,846 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: check_version
+2021-05-04 20:06:22,846 INFO    WriterThread:38644 [datastore.py:open_for_write():77] open: C:\Users\User\Documents\CS182\Project\CS182RLProject\wandb\run-20210504_200621-7satgs4w\run-7satgs4w.wandb
+2021-05-04 20:06:22,849 DEBUG   SenderThread:38644 [sender.py:send():173] send: header
+2021-05-04 20:06:22,849 DEBUG   SenderThread:38644 [sender.py:send_request():183] send_request: check_version
+2021-05-04 20:06:22,959 DEBUG   SenderThread:38644 [sender.py:send():173] send: run
+2021-05-04 20:06:23,152 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: run_start
+2021-05-04 20:06:23,157 INFO    SenderThread:38644 [sender.py:_start_run_threads():681] run started: 7satgs4w with start time 1620183981
+2021-05-04 20:06:23,157 DEBUG   SenderThread:38644 [sender.py:send():173] send: summary
+2021-05-04 20:06:23,158 DEBUG   HandlerThread:38644 [meta.py:__init__():39] meta init
+2021-05-04 20:06:23,158 INFO    SenderThread:38644 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-04 20:06:23,163 DEBUG   HandlerThread:38644 [meta.py:__init__():53] meta init done
+2021-05-04 20:06:23,169 DEBUG   HandlerThread:38644 [meta.py:probe():210] probe
+2021-05-04 20:06:23,170 DEBUG   HandlerThread:38644 [meta.py:_save_pip():57] save pip
+2021-05-04 20:06:23,171 DEBUG   HandlerThread:38644 [meta.py:_save_pip():71] save pip done
+2021-05-04 20:06:23,171 DEBUG   HandlerThread:38644 [meta.py:_save_conda():78] save conda
+2021-05-04 20:06:23,175 ERROR   HandlerThread:38644 [meta.py:_save_conda():85] Error saving conda packages
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\sdk\internal\meta.py", line 83, in _save_conda
+    subprocess.call(["conda", "env", "export"], stdout=f)
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\subprocess.py", line 339, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\subprocess.py", line 800, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\subprocess.py", line 1207, in _execute_child
+    startupinfo)
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2021-05-04 20:06:23,177 DEBUG   HandlerThread:38644 [meta.py:_save_conda():86] save conda done
+2021-05-04 20:06:23,178 DEBUG   HandlerThread:38644 [meta.py:probe():252] probe done
+2021-05-04 20:06:23,183 DEBUG   SenderThread:38644 [sender.py:send():173] send: files
+2021-05-04 20:06:23,183 INFO    SenderThread:38644 [sender.py:_save_file():808] saving file wandb-metadata.json with policy now
+2021-05-04 20:06:23,203 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-04 20:06:23,204 DEBUG   SenderThread:38644 [sender.py:send_request():183] send_request: stop_status
+2021-05-04 20:06:23,365 DEBUG   SenderThread:38644 [sender.py:send():173] send: history
+2021-05-04 20:06:23,366 DEBUG   SenderThread:38644 [sender.py:send():173] send: summary
+2021-05-04 20:06:23,370 INFO    SenderThread:38644 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-04 20:06:26,662 DEBUG   SenderThread:38644 [sender.py:send():173] send: telemetry
+2021-05-04 20:06:26,669 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: poll_exit
+2021-05-04 20:06:26,856 DEBUG   SenderThread:38644 [sender.py:send():173] send: exit
+2021-05-04 20:06:26,856 INFO    SenderThread:38644 [sender.py:send_exit():265] handling exit code: 1
+2021-05-04 20:06:26,856 INFO    SenderThread:38644 [sender.py:send_exit():273] send defer
+2021-05-04 20:06:26,856 DEBUG   SenderThread:38644 [sender.py:send_request():183] send_request: poll_exit
+2021-05-04 20:06:26,857 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: defer
+2021-05-04 20:06:26,857 INFO    HandlerThread:38644 [handler.py:handle_request_defer():135] handle defer: 0
+2021-05-04 20:06:26,857 DEBUG   SenderThread:38644 [sender.py:send_request():183] send_request: defer
+2021-05-04 20:06:26,857 INFO    SenderThread:38644 [sender.py:send_request_defer():282] handle sender defer: 0
+2021-05-04 20:06:26,857 INFO    SenderThread:38644 [sender.py:send_request_defer():318] send defer: 1
+2021-05-04 20:06:26,858 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: defer
+2021-05-04 20:06:26,858 INFO    HandlerThread:38644 [handler.py:handle_request_defer():135] handle defer: 1
+2021-05-04 20:06:26,892 DEBUG   SenderThread:38644 [sender.py:send_request():183] send_request: defer
+2021-05-04 20:06:26,892 INFO    SenderThread:38644 [sender.py:send_request_defer():282] handle sender defer: 1
+2021-05-04 20:06:26,892 INFO    SenderThread:38644 [sender.py:send_request_defer():318] send defer: 2
+2021-05-04 20:06:26,892 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: defer
+2021-05-04 20:06:26,893 INFO    HandlerThread:38644 [handler.py:handle_request_defer():135] handle defer: 2
+2021-05-04 20:06:26,893 DEBUG   SenderThread:38644 [sender.py:send():173] send: stats
+2021-05-04 20:06:26,893 DEBUG   SenderThread:38644 [sender.py:send_request():183] send_request: defer
+2021-05-04 20:06:26,893 INFO    SenderThread:38644 [sender.py:send_request_defer():282] handle sender defer: 2
+2021-05-04 20:06:26,893 INFO    SenderThread:38644 [sender.py:send_request_defer():318] send defer: 3
+2021-05-04 20:06:26,893 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: defer
+2021-05-04 20:06:26,893 INFO    HandlerThread:38644 [handler.py:handle_request_defer():135] handle defer: 3
+2021-05-04 20:06:26,893 DEBUG   SenderThread:38644 [sender.py:send():173] send: summary
+2021-05-04 20:06:26,893 INFO    SenderThread:38644 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-04 20:06:26,894 DEBUG   SenderThread:38644 [sender.py:send_request():183] send_request: defer
+2021-05-04 20:06:26,894 INFO    SenderThread:38644 [sender.py:send_request_defer():282] handle sender defer: 3
+2021-05-04 20:06:26,894 INFO    SenderThread:38644 [sender.py:send_request_defer():318] send defer: 4
+2021-05-04 20:06:26,894 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: defer
+2021-05-04 20:06:26,894 INFO    HandlerThread:38644 [handler.py:handle_request_defer():135] handle defer: 4
+2021-05-04 20:06:26,894 DEBUG   SenderThread:38644 [sender.py:send_request():183] send_request: defer
+2021-05-04 20:06:26,894 INFO    SenderThread:38644 [sender.py:send_request_defer():282] handle sender defer: 4
+2021-05-04 20:06:26,960 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: poll_exit
+2021-05-04 20:06:27,188 INFO    SenderThread:38644 [sender.py:send_request_defer():318] send defer: 5
+2021-05-04 20:06:27,188 DEBUG   SenderThread:38644 [sender.py:send_request():183] send_request: poll_exit
+2021-05-04 20:06:27,195 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: defer
+2021-05-04 20:06:27,195 INFO    HandlerThread:38644 [handler.py:handle_request_defer():135] handle defer: 5
+2021-05-04 20:06:27,196 DEBUG   SenderThread:38644 [sender.py:send_request():183] send_request: defer
+2021-05-04 20:06:27,196 INFO    SenderThread:38644 [sender.py:send_request_defer():282] handle sender defer: 5
+2021-05-04 20:06:27,196 INFO    SenderThread:38644 [sender.py:send_request_defer():318] send defer: 6
+2021-05-04 20:06:27,197 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: defer
+2021-05-04 20:06:27,197 INFO    HandlerThread:38644 [handler.py:handle_request_defer():135] handle defer: 6
+2021-05-04 20:06:27,197 DEBUG   SenderThread:38644 [sender.py:send_request():183] send_request: defer
+2021-05-04 20:06:27,197 INFO    SenderThread:38644 [sender.py:send_request_defer():282] handle sender defer: 6
+2021-05-04 20:06:27,303 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: poll_exit
+2021-05-04 20:06:27,406 INFO    SenderThread:38644 [sender.py:send_request_defer():318] send defer: 7
+2021-05-04 20:06:27,407 DEBUG   SenderThread:38644 [sender.py:send_request():183] send_request: poll_exit
+2021-05-04 20:06:27,407 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: defer
+2021-05-04 20:06:27,407 INFO    HandlerThread:38644 [handler.py:handle_request_defer():135] handle defer: 7
+2021-05-04 20:06:27,407 DEBUG   SenderThread:38644 [sender.py:send_request():183] send_request: defer
+2021-05-04 20:06:27,408 INFO    SenderThread:38644 [sender.py:send_request_defer():282] handle sender defer: 7
+2021-05-04 20:06:27,408 INFO    SenderThread:38644 [sender.py:send_request_defer():318] send defer: 8
+2021-05-04 20:06:27,408 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: defer
+2021-05-04 20:06:27,408 INFO    HandlerThread:38644 [handler.py:handle_request_defer():135] handle defer: 8
+2021-05-04 20:06:27,408 DEBUG   SenderThread:38644 [sender.py:send():173] send: final
+2021-05-04 20:06:27,408 DEBUG   SenderThread:38644 [sender.py:send():173] send: footer
+2021-05-04 20:06:27,409 DEBUG   SenderThread:38644 [sender.py:send_request():183] send_request: defer
+2021-05-04 20:06:27,409 INFO    SenderThread:38644 [sender.py:send_request_defer():282] handle sender defer: 8
+2021-05-04 20:06:27,520 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: poll_exit
+2021-05-04 20:06:27,520 DEBUG   SenderThread:38644 [sender.py:send_request():183] send_request: poll_exit
+2021-05-04 20:06:27,627 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: poll_exit
+2021-05-04 20:06:27,627 DEBUG   SenderThread:38644 [sender.py:send_request():183] send_request: poll_exit
+2021-05-04 20:06:27,737 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: poll_exit
+2021-05-04 20:06:27,737 DEBUG   SenderThread:38644 [sender.py:send_request():183] send_request: poll_exit
+2021-05-04 20:06:27,846 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: poll_exit
+2021-05-04 20:06:27,846 DEBUG   SenderThread:38644 [sender.py:send_request():183] send_request: poll_exit
+2021-05-04 20:06:27,954 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: poll_exit
+2021-05-04 20:06:27,954 DEBUG   SenderThread:38644 [sender.py:send_request():183] send_request: poll_exit
+2021-05-04 20:06:27,956 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: get_summary
+2021-05-04 20:06:27,957 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: sampled_history
+2021-05-04 20:06:27,958 DEBUG   HandlerThread:38644 [handler.py:handle_request():121] handle_request: shutdown
+2021-05-04 20:06:27,958 INFO    HandlerThread:38644 [handler.py:finish():629] shutting down handler
+2021-05-04 20:06:28,423 INFO    WriterThread:38644 [datastore.py:close():258] close: C:\Users\User\Documents\CS182\Project\CS182RLProject\wandb\run-20210504_200621-7satgs4w\run-7satgs4w.wandb
+2021-05-04 20:06:28,955 INFO    SenderThread:38644 [sender.py:finish():912] shutting down sender
+2021-05-04 20:06:28,955 INFO    MainThread:38644 [internal.py:handle_exit():78] Internal process exited
