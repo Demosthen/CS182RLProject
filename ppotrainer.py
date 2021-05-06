@@ -300,6 +300,8 @@ class PPOTrainer():
         # Normalize the advantages
         advs = (advs - advs.mean()) / (advs.std() + 1e-8)
 
+        if goals != None:
+            goals = goals.unsqueeze(dim=-1)
         new_val, new_out = self.pponetwork(obs, goals)
         new_logits = F.softmax(new_out, dim=-1)
         new_dist = Categorical(new_logits)
@@ -322,30 +324,40 @@ class PPOTrainer():
         return (scores == goals).int()
 
     def compute_scores(self, mb_raw_rews, mb_dones):
-        scores = [0] * self.num_actors
-        finished = [False] * self.num_actors
-        for t in reversed(range(self.num_timesteps)):
+        #[num_timesteps][num_actors]
+        curr_scores = torch.zeros(self.num_actors, device=mb_raw_rews.device)
+        scores = torch.zeros(self.num_timesteps, self.num_actors, device=mb_raw_rews.device)
+        for t in range(self.num_timesteps):
             for i in range(self.num_actors):
-                if not finished[i]:
-                    scores[i] += mb_raw_rews[t][i]
-                if dones[t][i]:
-                    finished[i] = True
-        return torch.tensor(scores, device=self.device)
+                if mb_dones[t][i]:
+                    curr_scores[i] = 0
+                curr_scores[i] += mb_raw_rews[t][i]
+                scores[t][i] = curr_scores[i]
+        return scores
+        # scores = [0] * self.num_actors
+        # finished = [False] * self.num_actors
+        # for t in reversed(range(self.num_timesteps)):
+        #     for i in range(self.num_actors):
+        #         if not finished[i]:
+        #             scores[i] += mb_raw_rews[t][i]
+        #         if mb_dones[t][i]:
+        #             finished[i] = True
+        # return torch.tensor(scores, device=self.device)
 
     def add_her_to_buffer(self, env : ProcgenGym3Env, obs, returns, dones, acts, vals, raw_rews, scores, last_dones):
         nenvs = self.num_actors
         mb_rews, mb_vals, mb_logprobs = [], [], []
-        goals = sample_her_goals
+        goals = self.sample_her_goals(dones, raw_rews).to(device=self.device)
         with torch.no_grad():
             for i in range(self.num_timesteps):
-                goal = goals[i]
-                vs, out = self.pponetwork(obs, goal)
+                goal = goals[i].unsqueeze(dim=-1)
+                vs, out = self.pponetwork(obs[i], goal)
                 probs = F.softmax(out, dim=-1)
                 dist = Categorical(probs)
                 log_probs = dist.log_prob(acts[i])
                 mb_vals.append(vs)
                 mb_logprobs.append(log_probs)
-                rews = self.her_reward(scores, goal)
+                rews = self.her_reward(scores[i], goal.squeeze())
                 mb_rews.append(torch.tensor(rews)) # Append reward after action
             #batch of steps to batch of rollouts
             mb_rews = torch.stack(mb_rews).to(device = self.device)
@@ -353,9 +365,9 @@ class PPOTrainer():
             mb_logprobs = torch.stack(mb_logprobs).to(device = self.device)
             mb_acts = acts
             mb_obs = obs
-            last_vals, _ = self.pponetwork(obs, goals[-1])
+            last_vals, _ = self.pponetwork(obs[-1], goals[-1].unsqueeze(dim=-1))
             mb_returns = self._compute_advantages2(mb_vals, mb_rews, dones, last_vals, last_dones)
-            return mb_obs, mb_returns, dones, mb_acts, mb_vals, mb_logprobs, mb_rews, raw_rews
+            return mb_obs, mb_returns, dones, mb_acts, mb_vals, mb_logprobs, mb_rews, raw_rews, goals
             # return (*map(sf01, (mb_obs, mb_returns, mb_dones, mb_acts, mb_vals, mb_logprobs, )), mb_rews, mb_dones, mb_raw_rews), 
 
     def compute_super_awesome_policy_and_see_what_reward_it_gives_us(self, env):
@@ -388,7 +400,7 @@ class PPOTrainer():
         max_rew = -1000
         for i in range(self.num_iters):
             print("Rolling out...")
-            obs, returns, dones, acts, vals, logprobs, rews, mb_dones, mb_raw_rews = self.rollout(env)
+            obs, returns, dones, acts, vals, logprobs, goals, rews, mb_dones, mb_raw_rews = self.rollout(env)
             num_eps = torch.sum(dones)
             # Index of each element of batch_size
             # Create the indices array
@@ -403,15 +415,15 @@ class PPOTrainer():
                 for start in range(0, nbatch, nbatch_train):
                     end = start + nbatch_train
                     mbinds = inds[start:end]
-                    slices = (arr[mbinds] for arr in (obs, returns, acts, vals, logprobs))
+                    slices = (arr[mbinds] for arr in (obs, returns, acts, vals, logprobs, goals))
                     log_dict = self.train_step(*slices)
                     avg_dict = {key: avg_dict.get(key, 0) + log_dict[key] * nbatch_train / (nbatch * self.num_epochs) for key in log_dict.keys()}
             
-            avg_dict["rewards"] = torch.sum(rews) / num_eps
+            avg_dict["her rewards"] = torch.sum(rews) / num_eps
             wandb.log(avg_dict)
             print("Iteration {}".format(i))
-            if avg_dict["rewards"] > max_rew:
-                max_rew = avg_dict["rewards"]
+            if avg_dict["her rewards"] > max_rew:
+                max_rew = avg_dict["her rewards"]
                 torch.save(self.pponetwork, "model.pt")
 
 
@@ -428,7 +440,8 @@ class PPOTrainer():
         dones = [False for _ in range(nenvs)]
         obs = self.process_obs(obs)
         if self.use_her:
-            goal = torch.ones([nenvs, 1]) * 30
+            mb_goals = torch.ones([self.num_timesteps, nenvs], device=self.device) * 30.0
+            goal = torch.ones([nenvs, 1],  device=self.device) * 30.0
         else:
             goal = None
         with torch.no_grad():
@@ -456,30 +469,37 @@ class PPOTrainer():
             mb_logprobs = torch.stack(mb_logprobs).to(device = self.device)
             mb_dones = torch.tensor(mb_dones, dtype=torch.int32, device = self.device)
             last_vals, _ = self.pponetwork(obs, goal)
+            rews_to_report = torch.sum(mb_raw_rews) / torch.sum(mb_dones)
+            wandb.log({"reward": rews_to_report}, commit=False)
             if self.use_her:
                 scores = self.compute_scores(mb_raw_rews, mb_dones)
-                mb_rews = self.her_reward(scores, goal)
+                mb_rews = self.her_reward(scores, goal.squeeze())
             else:
                 mb_rews = mb_raw_rews
             mb_returns = self._compute_advantages2(mb_vals, mb_raw_rews, mb_dones, last_vals, dones)
             if self.use_her:
-                mb_obs_, mb_returns_, mb_dones_, mb_acts_, mb_vals_, mb_logprobs_, mb_rews_, mb_raw_rews_ = self.add_her_to_buffer(env, mb_obs, mb_returns, mb_dones, mb_acts, mb_vals, mb_raw_rews, scores, dones)
-                mb_obs = torch.concat([mb_obs, mb_obs_], dim=0)
-                mb_returns = torch.concat([mb_returns, mb_returns_], dim=0)
-                mb_dones = torch.concat([mb_dones, mb_dones_], dim=0)
-                mb_acts = torch.concat([mb_acts, mb_acts_], dim = 0)
-                mb_vals = torch.concat([mb_vals, mb_vals_], dim = 0)
-                mb_logprobs = torch.concat([mb_logprobs, mb_logprobs_], dim=0)
-                mb_rews = torch.concat([mb_rews, mb_rews_], dim = 0)
-                mb_raw_rews = torch.concat([mb_raw_rews, mb_raw_rews_], dim=0)
-                
-            return (*map(sf01, (mb_obs, mb_returns, mb_dones, mb_acts, mb_vals, mb_logprobs, )), mb_rews, mb_dones, mb_raw_rews)
+                mb_obs_, mb_returns_, mb_dones_, \
+                 mb_acts_, mb_vals_, mb_logprobs_, \
+                  mb_rews_, mb_raw_rews_, mb_goals = self.add_her_to_buffer(env, mb_obs, mb_returns, mb_dones, mb_acts, mb_vals, mb_raw_rews, scores, dones)
+                mb_obs = torch.cat([mb_obs, mb_obs_], dim=0)
+                mb_returns = torch.cat([mb_returns, mb_returns_], dim=0)
+                mb_dones = torch.cat([mb_dones, mb_dones_], dim=0)
+                mb_acts = torch.cat([mb_acts, mb_acts_], dim = 0)
+                mb_vals = torch.cat([mb_vals, mb_vals_], dim = 0)
+                mb_logprobs = torch.cat([mb_logprobs, mb_logprobs_], dim=0)
+                mb_rews = torch.cat([mb_rews, mb_rews_], dim = 0)
+                mb_raw_rews = torch.cat([mb_raw_rews, mb_raw_rews_], dim=0)
+            if not self.use_her:
+                mb_goals=None
+            return (*map(sf01, (mb_obs, mb_returns, mb_dones, mb_acts, mb_vals, mb_logprobs, mb_goals)), mb_rews, mb_dones, mb_raw_rews)
 
 # obs, returns, masks, actions, values, neglogpacs, states = runner.run()
 def sf01(arr):
     """
     swap and then flatten axes 0 and 1
     """
+    if arr is None:
+        return None
     s = arr.shape
     return arr.swapaxes(0, 1).reshape(s[0] * s[1], *s[2:])
 

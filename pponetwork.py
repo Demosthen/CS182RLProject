@@ -133,7 +133,7 @@ class IMPALA_CNN(nn.Module):
             self._modules["conv" + str(i)] = self.convs[i]
         size = 64 // (2 ** len(depths))
         size = size ** 2
-        size = size * depths[-1] + 1
+        size = size * depths[-1] + (1 if use_her else 0)
         self.relu = nn.ReLU()
         self.fc0 = nn.Linear(size, 256)
         self.fc1 = nn.Linear(256, out_dim)
