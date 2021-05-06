@@ -1,0 +1,72 @@
+2021-05-04 19:51:58,194 INFO    MainThread:40152 [internal.py:wandb_internal():91] W&B internal server running at pid: 40152, started at: 2021-05-04 19:51:58.185410
+2021-05-04 19:51:58,196 DEBUG   HandlerThread:40152 [handler.py:handle_request():121] handle_request: check_version
+2021-05-04 19:51:58,197 INFO    WriterThread:40152 [datastore.py:open_for_write():77] open: C:\Users\User\Documents\CS182\Project\CS182RLProject\wandb\run-20210504_195157-37iq79ob\run-37iq79ob.wandb
+2021-05-04 19:51:58,199 DEBUG   SenderThread:40152 [sender.py:send():173] send: header
+2021-05-04 19:51:58,199 DEBUG   SenderThread:40152 [sender.py:send_request():183] send_request: check_version
+2021-05-04 19:51:58,331 DEBUG   SenderThread:40152 [sender.py:send():173] send: run
+2021-05-04 19:51:58,525 ERROR   SenderThread:40152 [internal_api.py:execute():130] 404 response executing GraphQL.
+2021-05-04 19:51:58,525 ERROR   SenderThread:40152 [internal_api.py:execute():131] {"errors":[{"message":"project not found","path":["upsertBucket"]}],"data":{"upsertBucket":null}}
+2021-05-04 19:51:59,332 INFO    WriterThread:40152 [datastore.py:close():258] close: C:\Users\User\Documents\CS182\Project\CS182RLProject\wandb\run-20210504_195157-37iq79ob\run-37iq79ob.wandb
+2021-05-04 19:51:59,348 INFO    HandlerThread:40152 [handler.py:finish():629] shutting down handler
+2021-05-04 19:51:59,348 ERROR   MainThread:40152 [internal.py:wandb_internal():158] Thread SenderThread:
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\sdk\lib\retry.py", line 102, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\sdk\internal\internal_api.py", line 133, in execute
+    six.reraise(*sys.exc_info())
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\six.py", line 703, in reraise
+    raise value
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\sdk\internal\internal_api.py", line 127, in execute
+    return self.client.execute(*args, **kwargs)
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\vendor\gql-0.2.0\gql\client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\vendor\gql-0.2.0\gql\client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\vendor\gql-0.2.0\gql\transport\requests.py", line 39, in execute
+    request.raise_for_status()
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\requests\models.py", line 943, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://api.wandb.ai/graphql
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\apis\normalize.py", line 24, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\sdk\internal\internal_api.py", line 889, in upsert_run
+    response = self.gql(mutation, variable_values=variable_values, **kwargs)
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\sdk\lib\retry.py", line 118, in __call__
+    if not check_retry_fn(e):
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\util.py", line 716, in no_retry_auth
+    raise CommError("Permission denied, ask the project owner to grant you access")
+wandb.errors.CommError: Permission denied, ask the project owner to grant you access
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\sdk\internal\internal_util.py", line 54, in run
+    self._run()
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\sdk\internal\internal_util.py", line 95, in _run
+    self._process(record)
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\sdk\internal\internal.py", line 280, in _process
+    self._sm.send(record)
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\sdk\internal\sender.py", line 175, in send
+    send_handler(record)
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\sdk\internal\sender.py", line 568, in send_run
+    self._init_run(run, config_value_dict)
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\sdk\internal\sender.py", line 604, in _init_run
+    commit=repo.last_commit,
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\apis\normalize.py", line 62, in wrapper
+    six.reraise(CommError, CommError(message, err), sys.exc_info()[2])
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\six.py", line 702, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\apis\normalize.py", line 24, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\sdk\internal\internal_api.py", line 889, in upsert_run
+    response = self.gql(mutation, variable_values=variable_values, **kwargs)
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\sdk\lib\retry.py", line 118, in __call__
+    if not check_retry_fn(e):
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\util.py", line 716, in no_retry_auth
+    raise CommError("Permission denied, ask the project owner to grant you access")
+wandb.errors.CommError: Permission denied, ask the project owner to grant you access
+2021-05-04 19:52:01,405 INFO    MainThread:40152 [internal.py:handle_exit():78] Internal process exited

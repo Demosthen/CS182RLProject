@@ -1,0 +1,16 @@
+{
+    "os": "Windows-10-10.0.19041-SP0",
+    "python": "3.7.10",
+    "heartbeatAt": "2021-05-05T03:02:45.076772",
+    "startedAt": "2021-05-05T03:02:43.445493",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "Testing.py",
+    "codePath": "Testing.py",
+    "host": "DESKTOP-8BS9F64",
+    "username": "User",
+    "executable": "C:\\Users\\User\\anaconda3\\envs\\cs182-project\\python.exe"
+}

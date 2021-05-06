@@ -11,11 +11,13 @@ if torch.cuda.is_available():
     device = torch.device("cuda")
 else:
     device = torch.device("cpu")
-num_actors = 64
+num_actors = 2
 env = ProcgenGym3Env(num=num_actors, env_name="fruitbot", render_mode="rgb_array", distribution_mode="easy")
+a = env.get_info()
+import pdb; pdb.set_trace()
 #env = gym3.ViewerWrapper(env, info_key="rgb")
 step = 0
-# TODO: decrease action space to just 3 
+# TODO: decrease action space to just 4 
 # [
 #             ("LEFT", "DOWN"),
 #             ("LEFT",),
@@ -76,7 +78,8 @@ if use_impala:
     network_params = impala_params
 else:
     network_params = cnn_params
-separate_value = True
+separate_value = False
+value_params = None
 if separate_value:
     if use_impala:
         network_params = a_impala_params
@@ -84,7 +87,8 @@ if separate_value:
     else:
         network_params = a_cnn_params
         value_params = v_cnn_params
-wandb.init(project="cs182rlproject")
+wandb.init(entity="cs182rlproject", project="project")
+wandb.log({"hello": 1})
 trainer = PPOTrainer(num_iters = 5000,
                      num_actors = num_actors,
                      num_timesteps = 256, 
@@ -102,7 +106,8 @@ trainer = PPOTrainer(num_iters = 5000,
                      device=device,
                      use_impala=use_impala,
                      ppo_network_args = network_params,
-                     value_network_args = value_params)
+                     value_network_args = value_params,
+                     use_her = True)
 
 #print(trainer._compute_advantage_single_actor(torch.ones([10]), torch.ones([10]), [2, 5]))
 trainer.train2(env)
