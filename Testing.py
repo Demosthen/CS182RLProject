@@ -13,7 +13,7 @@ if __name__ == "__main__":
         device = torch.device("cuda")
     else:
         device = torch.device("cpu")
-    num_actors = 48
+    num_actors = 16
     env = ProcgenGym3Env(num=num_actors, env_name="fruitbot", render_mode="rgb_array", distribution_mode="easy")
     #env = gym3.ViewerWrapper(env, info_key="rgb")
     step = 0

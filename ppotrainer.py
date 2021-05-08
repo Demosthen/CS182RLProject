@@ -321,7 +321,8 @@ class PPOTrainer():
                 "entropy": entropy}
         
     def her_reward(self, scores, goals): 
-        return (scores == goals).int()
+        # return (scores == goals).int()
+        return (scores >= goals).int()
 
     def compute_scores(self, mb_raw_rews, mb_dones):
         #[num_timesteps][num_actors]
@@ -398,9 +399,12 @@ class PPOTrainer():
 
     def train2(self, env : ProcgenGym3Env):
         max_rew = -1000
+        goal_buffer = torch.ones([5, self.num_timesteps, nenvs], device=self.device) * 30.0
         for i in range(self.num_iters):
             print("Rolling out...")
-            obs, returns, dones, acts, vals, logprobs, goals, rews, mb_dones, mb_raw_rews = self.rollout(env)
+            mean_goal = torch.mean(goals, dim=0) + 1
+            obs, returns, dones, acts, vals, logprobs, goals, rews, mb_dones, mb_raw_rews = self.rollout(env, mean_goal)
+            goal_buffer[i%5] = self.compute_scores(mb_raw_rews, mb_dones) # I hope this works
             num_eps = torch.sum(dones)
             # Index of each element of batch_size
             # Create the indices array
@@ -433,19 +437,21 @@ class PPOTrainer():
         obs = obs.permute(0, 3, 1, 2)
         return obs
 
-    def rollout(self, env : ProcgenGym3Env):
+    def rollout(self, env : ProcgenGym3Env, avg_goal):
         nenvs = self.num_actors
         mb_obs, mb_raw_rews, mb_acts, mb_vals, mb_dones, mb_logprobs = [], [], [], [], [], []
         _, obs, _ = env.observe()
         dones = [False for _ in range(nenvs)]
         obs = self.process_obs(obs)
         if self.use_her:
-            mb_goals = torch.ones([self.num_timesteps, nenvs], device=self.device) * 30.0
-            goal = torch.ones([nenvs, 1],  device=self.device) * 30.0
+            # mb_goals = torch.ones([self.num_timesteps, nenvs], device=self.device) * 30.0
+            # goal = torch.ones([nenvs, 1],  device=self.device) * 30.0
+            mb_goals = torch.ones([self.num_timesteps, nenvs], device=self.device) * 30.0 # we don't actually use this? it's overwritten by the output from add_her_to_buffer
         else:
             goal = None
         with torch.no_grad():
-            for _ in range(self.num_timesteps):
+            for i in range(self.num_timesteps):
+                goal = avg_goal[i].unsqueeze(dim=-1)
                 vals, out = self.pponetwork(obs, goal)
                 probs = F.softmax(out, dim=-1)
                 dist = Categorical(probs)
