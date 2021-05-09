@@ -90,7 +90,7 @@ class PPONetwork(nn.Module):
         else:
             in_size = np.prod(input_dims)
         if self.use_her:
-            in_size += 1
+            in_size += 2
         self.fcs = [FCBlock(in_size, fc_layer_sizes[0])]
         for i in range(1, len(fc_layer_sizes)):
             self.fcs.append(FCBlock(fc_layer_sizes[i-1], fc_layer_sizes[i]))
@@ -133,7 +133,7 @@ class IMPALA_CNN(nn.Module):
             self._modules["conv" + str(i)] = self.convs[i]
         size = 64 // (2 ** len(depths))
         size = size ** 2
-        size = size * depths[-1] + (1 if use_her else 0)
+        size = size * depths[-1] + (2 if use_her else 0)
         self.relu = nn.ReLU()
         self.fc0 = nn.Linear(size, 256)
         self.fc1 = nn.Linear(256, out_dim)
@@ -142,7 +142,7 @@ class IMPALA_CNN(nn.Module):
         self.out_dim = out_dim
         self.use_her = use_her
     
-    def forward(self, input, goal=None):
+    def forward(self, input, goal=None, score=None):
         out = input
         if self.use_her and goal is None:
             print("please specify a goal with HER")
@@ -153,7 +153,7 @@ class IMPALA_CNN(nn.Module):
         out = torch.flatten(out, start_dim=1)
         out = self.relu(out)
         if self.use_her:
-            out = torch.cat([out, goal], dim=-1)
+            out = torch.cat([out, goal, score], dim=-1)
         val_out = self.val_fc0(out)
         val_out = self.relu(val_out)
         val_out = self.val_fc1(val_out)
