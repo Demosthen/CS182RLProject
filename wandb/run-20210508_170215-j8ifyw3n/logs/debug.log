@@ -1,0 +1,9 @@
+2021-05-08 17:02:15,731 INFO    MainThread:34044 [wandb_setup.py:_flush():69] setting env: {}
+2021-05-08 17:02:15,732 INFO    MainThread:34044 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-05-08 17:02:15,733 INFO    MainThread:34044 [wandb_init.py:_log_setup():336] Logging user logs to C:\Users\User\Documents\CS182\Project\CS182RLProject\wandb\run-20210508_170215-j8ifyw3n\logs\debug.log
+2021-05-08 17:02:15,733 INFO    MainThread:34044 [wandb_init.py:_log_setup():337] Logging internal logs to C:\Users\User\Documents\CS182\Project\CS182RLProject\wandb\run-20210508_170215-j8ifyw3n\logs\debug-internal.log
+2021-05-08 17:02:15,734 INFO    MainThread:34044 [wandb_init.py:init():369] calling init triggers
+2021-05-08 17:02:15,734 INFO    MainThread:34044 [wandb_init.py:init():376] wandb.init called with sweep_config: {}
+config: {}
+2021-05-08 17:02:15,738 INFO    MainThread:34044 [wandb_init.py:init():418] starting backend
+2021-05-08 17:02:15,738 INFO    MainThread:34044 [backend.py:_multiprocessing_setup():71] multiprocessing start_methods=spawn, using: spawn
