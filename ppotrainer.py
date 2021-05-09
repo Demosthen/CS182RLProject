@@ -405,10 +405,10 @@ class PPOTrainer():
 
     def train2(self, env : ProcgenGym3Env):
         max_rew = -1000
-        goal_buffer = torch.ones([5, self.num_timesteps, self.nenvs], device=self.device) * 30.0
+        goal_buffer = torch.ones([5, self.num_timesteps, self.num_actors], device=self.device) * 30.0
         for i in range(self.num_iters):
             print("Rolling out...")
-            mean_goal = torch.mean(goals, dim=0) + 1
+            mean_goal = torch.mean(goal_buffer, dim=0) + 1
             obs, returns, dones, acts, vals, logprobs, goals, scores, rews, mb_dones, mb_raw_rews = self.rollout(env, mean_goal)
             goal_buffer[i%5] = self.compute_scores(mb_raw_rews, mb_dones) # I hope this works
             num_eps = torch.sum(dones)

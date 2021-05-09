@@ -1,0 +1,1179 @@
+2021-05-08 15:33:38,015 INFO    MainThread:28248 [internal.py:wandb_internal():91] W&B internal server running at pid: 28248, started at: 2021-05-08 15:33:38.007859
+2021-05-08 15:33:38,018 INFO    WriterThread:28248 [datastore.py:open_for_write():77] open: C:\Users\User\Documents\CS182\Project\CS182RLProject\wandb\run-20210508_153337-18lzh74x\run-18lzh74x.wandb
+2021-05-08 15:33:38,018 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: check_version
+2021-05-08 15:33:38,021 DEBUG   SenderThread:28248 [sender.py:send():173] send: header
+2021-05-08 15:33:38,021 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: check_version
+2021-05-08 15:33:38,171 DEBUG   SenderThread:28248 [sender.py:send():173] send: run
+2021-05-08 15:33:38,360 INFO    SenderThread:28248 [sender.py:_start_run_threads():681] run started: 18lzh74x with start time 1620513217
+2021-05-08 15:33:38,361 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:33:38,361 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: run_start
+2021-05-08 15:33:38,374 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:33:38,379 DEBUG   HandlerThread:28248 [meta.py:__init__():39] meta init
+2021-05-08 15:33:38,379 DEBUG   HandlerThread:28248 [meta.py:__init__():53] meta init done
+2021-05-08 15:33:38,379 DEBUG   HandlerThread:28248 [meta.py:probe():210] probe
+2021-05-08 15:33:38,379 DEBUG   HandlerThread:28248 [meta.py:_save_pip():57] save pip
+2021-05-08 15:33:38,386 DEBUG   HandlerThread:28248 [meta.py:_save_pip():71] save pip done
+2021-05-08 15:33:38,386 DEBUG   HandlerThread:28248 [meta.py:_save_conda():78] save conda
+2021-05-08 15:33:38,391 ERROR   HandlerThread:28248 [meta.py:_save_conda():85] Error saving conda packages
+Traceback (most recent call last):
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\site-packages\wandb\sdk\internal\meta.py", line 83, in _save_conda
+    subprocess.call(["conda", "env", "export"], stdout=f)
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\subprocess.py", line 339, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\subprocess.py", line 800, in __init__
+    restore_signals, start_new_session)
+  File "C:\Users\User\anaconda3\envs\cs182-project\lib\subprocess.py", line 1207, in _execute_child
+    startupinfo)
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2021-05-08 15:33:38,393 DEBUG   HandlerThread:28248 [meta.py:_save_conda():86] save conda done
+2021-05-08 15:33:38,393 DEBUG   HandlerThread:28248 [meta.py:probe():252] probe done
+2021-05-08 15:33:38,397 DEBUG   SenderThread:28248 [sender.py:send():173] send: files
+2021-05-08 15:33:38,397 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-metadata.json with policy now
+2021-05-08 15:33:38,408 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:33:38,409 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:33:53,562 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:33:53,562 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:34:00,427 DEBUG   SenderThread:28248 [sender.py:send():173] send: files
+2021-05-08 15:34:00,428 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file media\graph\graph_0_summary_fb83c2a0.graph.json with policy now
+2021-05-08 15:34:00,429 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:34:00,431 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:34:00,432 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:34:00,434 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:34:00,434 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:34:00,435 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:34:00,436 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:34:00,440 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:34:00,441 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:34:00,442 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:34:00,443 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:34:00,444 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:34:00,444 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:34:00,445 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:34:00,446 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:34:00,447 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:34:00,466 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:34:00,467 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:34:08,800 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:34:08,800 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:34:09,602 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:34:23,961 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:34:23,961 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:34:39,138 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:34:39,138 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:34:43,136 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:34:43,493 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:34:43,493 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:34:43,495 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:34:54,343 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:34:54,343 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:35:09,558 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:35:09,558 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:35:16,663 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:35:24,708 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:35:24,708 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:35:39,881 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:35:39,881 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:35:50,219 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:35:55,059 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:35:55,059 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:35:58,393 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:35:58,401 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:35:58,412 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:36:10,249 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:36:10,249 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:36:23,779 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:36:25,507 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:36:25,508 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:36:40,690 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:36:40,690 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:36:55,853 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:36:55,853 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:36:57,293 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:37:11,009 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:37:11,009 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:37:15,552 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:37:15,552 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:37:15,562 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:37:26,172 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:37:26,172 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:37:30,780 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:37:41,323 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:37:41,323 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:37:56,492 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:37:56,492 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:38:04,313 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:38:11,666 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:38:11,666 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:38:26,842 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:38:26,842 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:38:32,352 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:38:32,363 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:38:32,373 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:38:37,831 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:38:42,041 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:38:42,041 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:38:57,305 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:38:57,306 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:39:11,349 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:39:12,477 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:39:12,477 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:39:27,637 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:39:27,637 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:39:42,810 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:39:42,810 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:39:44,886 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:39:47,706 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:39:47,707 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:39:47,715 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:39:57,982 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:39:57,982 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:40:13,146 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:40:13,146 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:40:18,435 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:40:28,331 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:40:28,332 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:40:43,501 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:40:43,501 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:40:51,967 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:40:58,697 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:40:58,698 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:41:02,943 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:41:02,952 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:41:02,963 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:41:14,017 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:41:14,017 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:41:25,471 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:41:29,189 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:41:29,189 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:41:44,373 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:41:44,373 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:41:59,021 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:41:59,547 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:41:59,547 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:42:14,704 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:42:14,704 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:42:16,769 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:42:16,769 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:42:16,780 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:42:29,861 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:42:29,861 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:42:32,571 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:42:45,009 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:42:45,009 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:43:00,181 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:43:00,181 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:43:06,105 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:43:15,361 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:43:15,361 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:43:30,545 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:43:30,545 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:43:35,281 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:43:35,293 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:43:35,306 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:43:39,625 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:43:45,706 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:43:45,706 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:44:00,961 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:44:00,961 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:44:13,131 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:44:16,132 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:44:16,132 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:44:31,326 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:44:31,327 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:44:46,506 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:44:46,506 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:44:46,661 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:44:56,695 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:44:56,696 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:44:56,708 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:45:01,665 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:45:01,665 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:45:16,837 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:45:16,838 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:45:20,168 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:45:32,012 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:45:32,012 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:45:47,165 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:45:47,165 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:45:53,673 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:46:02,328 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:46:02,328 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:46:16,708 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:46:16,726 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:46:16,737 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:46:17,642 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:46:17,642 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:46:27,148 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:46:32,806 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:46:32,806 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:46:47,975 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:46:47,976 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:47:00,656 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:47:03,158 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:47:03,158 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:47:18,352 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:47:18,352 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:47:33,533 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:47:33,533 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:47:34,113 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:47:36,075 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:47:36,076 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:47:36,087 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:47:48,691 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:47:48,692 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:48:03,857 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:48:03,857 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:48:07,653 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:48:19,033 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:48:19,033 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:48:34,204 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:48:34,204 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:48:41,173 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:48:49,373 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:48:49,373 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:48:52,793 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:48:52,802 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:48:52,813 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:49:04,608 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:49:04,609 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:49:14,706 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:49:19,773 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:49:19,773 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:49:34,935 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:49:34,935 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:49:48,232 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:49:50,113 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:49:50,113 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:50:05,279 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:50:05,279 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:50:11,286 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:50:11,286 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:50:11,298 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:50:20,433 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:50:20,433 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:50:21,731 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:50:35,604 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:50:35,604 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:50:50,776 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:50:50,777 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:50:55,232 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:51:05,944 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:51:05,944 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:51:21,171 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:51:21,171 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:51:28,707 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:51:29,199 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:51:29,208 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:51:29,217 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:51:36,323 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:51:36,323 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:51:51,494 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:51:51,494 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:52:02,217 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:52:06,748 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:52:06,748 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:52:21,903 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:52:21,904 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:52:35,739 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:52:37,059 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:52:37,059 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:52:44,192 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:52:44,193 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:52:44,204 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:52:52,219 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:52:52,220 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:53:07,377 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:53:07,377 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:53:09,237 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:53:22,560 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:53:22,560 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:53:37,726 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:53:37,726 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:53:42,736 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:53:52,968 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:53:52,968 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:53:59,114 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:53:59,125 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:53:59,140 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:54:08,129 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:54:08,129 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:54:16,224 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:54:23,310 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:54:23,310 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:54:38,470 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:54:38,470 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:54:49,739 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:54:53,638 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:54:53,638 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:55:08,806 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:55:08,807 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:55:16,497 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:55:16,498 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:55:16,507 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:55:23,260 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:55:23,981 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:55:23,982 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:55:39,145 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:55:39,145 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:55:54,317 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:55:54,318 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:55:56,776 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:56:09,488 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:56:09,488 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:56:24,692 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:56:24,692 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:56:30,275 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:56:33,290 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:56:33,301 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:56:33,312 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:56:39,868 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:56:39,868 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:56:55,108 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:56:55,109 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:57:03,790 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:57:10,399 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:57:10,399 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:57:25,566 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:57:25,566 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:57:37,265 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:57:40,761 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:57:40,761 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:57:52,892 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:57:52,901 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:57:52,923 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:57:55,933 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:57:55,933 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:58:10,770 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:58:11,104 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:58:11,105 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:58:26,273 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:58:26,273 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:58:41,431 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:58:41,431 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:58:44,310 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:58:56,585 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:58:56,585 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:59:11,600 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 15:59:11,606 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 15:59:11,618 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 15:59:11,734 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:59:11,734 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:59:17,807 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:59:26,903 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:59:26,903 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:59:42,078 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:59:42,078 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 15:59:51,323 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 15:59:57,288 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 15:59:57,288 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:00:12,436 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:00:12,436 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:00:24,793 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:00:27,618 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:00:27,618 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:00:29,894 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:00:29,894 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:00:29,905 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:00:42,763 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:00:42,763 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:00:57,915 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:00:57,915 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:00:58,282 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:01:13,067 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:01:13,072 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:01:28,236 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:01:28,236 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:01:31,758 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:01:43,406 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:01:43,406 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:01:52,591 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:01:52,602 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:01:52,614 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:01:58,640 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:01:58,640 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:02:05,241 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:02:13,889 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:02:13,889 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:02:29,052 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:02:29,052 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:02:38,747 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:02:44,240 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:02:44,240 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:02:59,408 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:02:59,408 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:03:11,438 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:03:11,438 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:03:11,449 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:03:12,234 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:03:14,567 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:03:14,567 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:03:29,731 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:03:29,731 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:03:44,918 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:03:44,919 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:03:45,738 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:04:00,099 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:04:00,099 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:04:15,266 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:04:15,266 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:04:19,242 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:04:29,396 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:04:29,408 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:04:29,418 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:04:30,427 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:04:30,427 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:04:45,619 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:04:45,619 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:04:52,727 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:05:00,805 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:05:00,805 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:05:15,974 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:05:15,974 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:05:26,258 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:05:31,129 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:05:31,129 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:05:46,191 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:05:46,192 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:05:46,200 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:05:46,297 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:05:46,297 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:05:59,795 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:06:01,475 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:06:01,475 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:06:16,638 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:06:16,639 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:06:31,793 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:06:31,793 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:06:33,327 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:06:46,959 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:06:46,959 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:06:59,164 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:06:59,171 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:06:59,180 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:07:02,238 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:07:02,238 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:07:06,844 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:07:17,538 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:07:17,538 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:07:32,715 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:07:32,715 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:07:40,347 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:07:47,904 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:07:47,904 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:08:03,070 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:08:03,070 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:08:11,734 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:08:11,735 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:08:11,747 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:08:13,889 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:08:18,244 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:08:18,244 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:08:33,403 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:08:33,403 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:08:47,385 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:08:48,571 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:08:48,571 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:09:03,744 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:09:03,744 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:09:18,922 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:09:18,922 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:09:20,912 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:09:26,155 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:09:26,167 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:09:26,180 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:09:34,118 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:09:34,118 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:09:49,291 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:09:49,292 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:09:54,422 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:10:04,460 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:10:04,460 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:10:19,636 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:10:19,636 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:10:27,959 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:10:34,829 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:10:34,830 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:10:45,518 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:10:45,519 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:10:45,530 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:10:50,022 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:10:50,023 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:11:01,439 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:11:05,189 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:11:05,189 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:11:20,390 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:11:20,390 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:11:34,942 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:11:35,577 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:11:35,577 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:11:50,831 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:11:50,831 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:12:06,094 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:12:06,095 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:12:07,864 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:12:07,872 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:12:07,884 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:12:08,424 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:12:21,339 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:12:21,339 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:12:36,510 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:12:36,510 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:12:41,970 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:12:51,675 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:12:51,675 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:13:06,855 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:13:06,855 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:13:15,480 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:13:22,020 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:13:22,020 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:13:26,080 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:13:26,081 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:13:26,091 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:13:37,193 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:13:37,193 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:13:48,966 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:13:52,372 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:13:52,372 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:14:07,651 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:14:07,651 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:14:22,493 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:14:22,828 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:14:22,828 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:14:38,005 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:14:38,005 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:14:45,310 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:14:45,325 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:14:45,335 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:14:53,170 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:14:53,170 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:14:56,011 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:15:08,325 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:15:08,325 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:15:23,500 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:15:23,500 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:15:29,512 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:15:38,675 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:15:38,675 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:15:53,851 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:15:53,851 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:16:03,010 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:16:05,322 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:16:05,323 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:16:05,331 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:16:09,026 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:16:09,026 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:16:24,181 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:16:24,181 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:16:36,523 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:16:39,358 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:16:39,358 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:16:54,534 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:16:54,534 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:17:09,801 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:17:09,802 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:17:10,048 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:17:25,050 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:17:25,050 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:17:25,219 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:17:25,228 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:17:25,238 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:17:40,220 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:17:40,220 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:17:43,561 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:17:55,384 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:17:55,385 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:18:10,558 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:18:10,558 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:18:17,070 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:18:25,727 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:18:25,727 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:18:40,892 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:18:40,892 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:18:45,125 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:18:45,126 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:18:45,139 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:18:50,562 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:18:56,052 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:18:56,053 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:19:11,243 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:19:11,243 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:19:24,065 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:19:26,475 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:19:26,475 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:19:41,650 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:19:41,650 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:19:56,814 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:19:56,815 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:19:57,510 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:20:04,475 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:20:04,484 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:20:04,492 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:20:11,993 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:20:11,993 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:20:27,186 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:20:27,186 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:20:30,997 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:20:42,386 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:20:42,387 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:20:57,551 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:20:57,551 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:21:04,534 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:21:12,725 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:21:12,725 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:21:26,741 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:21:26,742 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:21:26,750 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:21:27,898 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:21:27,898 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:21:38,070 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:21:43,056 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:21:43,056 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:21:58,218 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:21:58,218 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:22:11,570 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:22:13,493 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:22:13,493 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:22:28,837 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:22:28,837 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:22:44,001 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:22:44,001 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:22:45,051 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:22:48,975 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:22:48,986 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:22:49,001 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:22:59,179 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:22:59,179 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:23:14,340 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:23:14,340 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:23:18,524 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:23:29,503 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:23:29,503 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:23:44,683 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:23:44,683 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:23:52,035 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:23:59,849 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:23:59,849 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:24:05,803 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:24:05,803 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:24:05,814 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:24:15,018 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:24:15,018 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:24:25,558 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:24:30,238 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:24:30,238 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:24:45,500 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:24:45,500 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:24:59,135 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:25:00,686 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:25:00,687 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:25:15,857 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:25:15,857 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:25:19,565 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:25:19,575 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:25:19,586 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:25:31,031 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:25:31,031 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:25:32,679 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:25:46,206 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:25:46,206 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:26:01,369 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:26:01,369 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:26:06,267 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:26:16,553 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:26:16,553 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:26:31,738 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:26:31,738 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:26:35,147 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:26:35,148 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:26:35,168 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:26:39,770 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:26:46,900 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:26:46,900 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:27:02,163 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:27:02,163 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:27:13,309 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:27:17,451 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:27:17,451 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:27:32,729 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:27:32,729 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:27:46,934 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:27:47,892 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:27:47,892 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:27:49,902 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:27:49,915 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:27:49,925 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:28:03,047 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:28:03,047 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:28:18,271 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:28:18,271 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:28:20,511 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:28:33,441 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:28:33,441 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:28:48,611 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:28:48,611 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:28:54,121 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:29:01,737 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:29:01,746 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:29:01,758 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:29:03,779 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:29:03,779 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:29:19,002 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:29:19,002 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:29:27,716 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:29:34,190 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:29:34,191 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:29:49,363 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:29:49,363 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:30:01,333 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:30:04,549 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:30:04,549 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:30:13,809 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:30:13,809 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:30:13,821 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:30:19,756 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:30:19,756 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:30:34,923 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:30:34,959 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:30:34,959 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:30:50,115 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:30:50,115 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:31:05,315 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:31:05,315 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:31:08,526 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:31:20,502 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:31:20,502 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:31:26,102 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:31:26,112 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:31:26,124 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:31:35,649 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:31:35,649 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:31:42,128 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:31:50,807 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:31:50,807 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:32:05,976 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:32:05,976 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:32:15,743 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:32:21,231 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:32:21,231 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:32:36,527 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:32:36,527 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:32:39,005 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:32:39,005 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:32:39,016 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:32:49,366 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:32:51,710 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:32:51,710 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:33:06,871 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:33:06,871 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:33:22,031 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:33:22,031 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:33:22,963 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:33:37,204 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:33:37,204 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:33:49,029 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:33:49,041 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:33:49,053 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:33:52,377 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:33:52,377 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:33:56,562 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:34:07,559 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:34:07,559 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:34:22,727 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:34:22,727 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:34:30,178 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:34:37,935 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:34:37,935 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:34:53,105 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:34:53,105 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:34:58,753 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:34:58,753 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:34:58,762 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:35:03,777 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:35:08,287 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:35:08,287 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:35:23,458 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:35:23,458 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:35:37,365 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:35:38,604 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:35:38,604 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:35:53,807 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:35:53,807 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:36:08,740 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:36:08,749 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:36:08,763 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:36:08,981 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:36:08,981 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:36:10,965 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:36:24,150 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:36:24,150 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:36:39,318 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:36:39,318 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:36:44,551 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:36:54,493 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:36:54,493 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:37:09,687 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:37:09,687 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:37:18,172 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:37:18,703 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:37:18,703 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:37:18,714 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:37:24,924 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:37:24,924 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:37:40,153 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:37:40,153 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:37:51,709 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:37:55,441 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:37:55,442 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:38:10,613 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:38:10,613 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:38:25,319 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:38:25,786 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:38:25,786 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:38:27,811 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:38:27,818 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:38:27,829 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:38:41,031 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:38:41,031 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:38:56,217 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:38:56,217 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:38:58,935 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:39:11,384 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:39:11,384 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:39:26,537 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:39:26,537 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:39:32,525 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:39:37,375 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:39:37,376 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:39:37,384 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:39:41,702 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:39:41,702 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:39:56,905 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:39:56,905 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:40:06,086 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:40:12,187 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:40:12,187 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:40:27,364 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:40:27,364 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:40:39,708 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:40:42,548 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:40:42,548 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:40:46,498 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:40:46,514 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:40:46,523 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:40:57,712 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:40:57,712 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:41:12,871 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:41:12,871 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:41:13,279 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:41:28,029 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:41:28,029 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:41:43,279 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:41:43,280 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:41:46,887 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:41:56,329 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:41:56,329 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:41:56,341 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:41:58,447 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:41:58,447 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:42:13,624 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:42:13,624 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:42:20,491 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:42:28,856 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:42:28,856 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:42:44,038 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:42:44,038 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:42:54,088 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:42:59,204 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:42:59,204 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:43:05,315 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:43:05,323 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:43:05,332 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:43:14,376 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:43:14,376 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:43:27,683 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:43:29,639 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:43:29,640 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:43:44,813 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:43:44,813 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:44:00,097 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:44:00,097 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:44:01,296 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:44:15,349 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:44:15,351 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:44:15,358 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:44:15,359 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:44:15,360 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:44:30,538 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:44:30,538 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:44:34,873 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:44:45,723 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:44:45,723 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:45:00,890 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:45:00,890 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:45:08,451 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:45:16,068 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:45:16,068 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:45:24,760 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:45:24,770 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:45:24,779 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:45:31,238 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:45:31,238 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:45:42,014 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:45:46,409 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:45:46,409 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:46:01,573 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:46:01,573 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:46:15,616 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:46:16,827 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:46:16,827 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:46:32,006 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:46:32,006 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:46:35,277 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:46:35,279 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:46:35,290 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:46:47,249 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:46:47,249 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:46:49,162 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:47:02,447 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:47:02,447 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:47:17,628 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:47:17,628 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:47:22,691 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:47:32,877 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:47:32,877 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:47:46,785 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:47:46,797 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:47:46,805 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:47:48,069 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:47:48,069 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:47:56,260 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:48:03,266 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:48:03,266 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:48:18,423 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:48:18,423 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:48:29,846 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:48:33,631 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:48:33,631 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:48:48,806 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:48:48,806 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:48:55,809 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:48:55,809 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:48:55,821 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:49:03,428 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:49:03,990 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:49:03,991 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:49:19,241 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:49:19,241 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:49:34,515 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:49:34,515 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:49:36,986 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:49:49,754 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:49:49,754 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:50:04,924 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:50:04,924 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:50:05,503 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:50:05,511 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:50:05,521 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:50:10,648 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:50:20,174 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:50:20,174 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:50:35,354 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:50:35,354 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:50:44,223 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:50:50,633 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:50:50,633 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:51:05,815 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:51:05,815 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:51:17,731 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:51:21,065 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:51:21,065 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:51:31,613 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:51:31,613 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:51:31,625 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:51:33,579 WARNING FileStreamThread:28248 [file_stream.py:request_with_retry():420] requests_with_retry encountered retryable exception: ('Connection aborted.', TimeoutError(10060, 'A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond', None, 10060, None)). func: <bound method Session.post of <requests.sessions.Session object at 0x0000028C46EE5348>>, args: ('https://api.wandb.ai/files/cs182rlproject/project/18lzh74x/file_stream',), kwargs: {'json': {'complete': False, 'failed': False}}
+2021-05-08 16:51:36,221 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:51:36,222 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:51:51,275 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:51:51,400 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:51:51,400 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:52:06,561 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:52:06,561 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:52:21,733 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:52:21,733 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:52:24,777 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:52:36,900 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:52:36,900 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:52:51,939 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:52:51,949 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:52:51,964 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:52:52,072 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:52:52,072 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:52:58,251 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:53:07,222 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:53:07,222 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:53:11,165 WARNING FileStreamThread:28248 [file_stream.py:request_with_retry():420] requests_with_retry encountered retryable exception: ('Connection aborted.', TimeoutError(10060, 'A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond', None, 10060, None)). func: <bound method Session.post of <requests.sessions.Session object at 0x0000028C46EE5348>>, args: ('https://api.wandb.ai/files/cs182rlproject/project/18lzh74x/file_stream',), kwargs: {'json': {'files': {'wandb-history.jsonl': {'offset': 62, 'content': ['{"reward": -1.017543911933899, "gradients/fc1.bias": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-0.03185533359646797, -0.03073710948228836, -0.0296188835054636, -0.02850065752863884, -0.02738243341445923, -0.026264209300279617, -0.025145983323454857, -0.024027757346630096, -0.022909533232450485, -0.021791309118270874, -0.020673083141446114, -0.019554857164621353, -0.018436633050441742, -0.01731840893626213, -0.01620018295943737, -0.015081957913935184, -0.013963732868432999, -0.012845507822930813, -0.011727282777428627, -0.010609057731926441, -0.009490832686424255, -0.00837260764092207, -0.007254382595419884, -0.006136157549917698, -0.005017932504415512, -0.0038997074589133263, -0.0027814824134111404, -0.0016632573679089546, -0.0005450323224067688, 0.000573192723095417, 0.0016914177685976028, 0.0028096428140997887, 0.003927871584892273, 0.005046096630394459, 0.006164321675896645, 0.00728254672139883, 0.008400771766901016, 0.009518996812403202, 0.010637221857905388, 0.011755446903407574, 0.01287367194890976, 0.013991896994411945, 0.015110122039914131, 0.01622834801673889, 0.017346572130918503, 0.018464796245098114, 0.019583022221922874, 0.020701248198747635, 0.021819472312927246, 0.022937696427106857, 0.024055922403931618, 0.025174148380756378, 0.02629237249493599, 0.0274105966091156, 0.02852882258594036, 0.02964704856276512, 0.030765272676944733, 0.031883496791124344, 0.033001720905303955, 0.034119948744773865, 0.035238172858953476, 0.03635639697313309, 0.037474624812603, 0.03859284892678261, 0.03971107304096222]}, "gradients/fc1.weight": {"_type": "histogram", "values": [1.0, 0.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 3.0, 4.0, 0.0, 5.0, 5.0, 6.0, 35.0, 924.0, 13.0, 3.0, 3.0, 3.0, 2.0, 0.0, 1.0, 2.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0], "bins": [-0.38695186376571655, -0.3733169734477997, -0.3596820533275604, -0.34604716300964355, -0.3324122726917267, -0.3187773823738098, -0.30514246225357056, -0.2915075719356537, -0.2778726816177368, -0.26423779129981995, -0.2506028711795807, -0.23696798086166382, -0.22333309054374695, -0.20969818532466888, -0.19606328010559082, -0.18242838978767395, -0.1687934845685959, -0.15515857934951782, -0.14152368903160095, -0.1278887838125229, -0.11425389349460602, -0.10061898827552795, -0.08698409050703049, -0.07334919273853302, -0.059714287519454956, -0.04607938975095749, -0.03244449198246002, -0.018809590488672256, -0.005174692720174789, 0.008460208773612976, 0.022095106542110443, 0.03573000431060791, 0.04936489462852478, 0.06299979239702225, 0.07663469016551971, 0.09026959538459778, 0.10390448570251465, 0.11753939092159271, 0.13117429614067078, 0.14480918645858765, 0.15844407677650452, 0.17207898199558258, 0.18571387231349945, 0.19934877753257751, 0.21298366785049438, 0.22661857306957245, 0.2402534782886505, 0.2538883686065674, 0.26752328872680664, 0.2811581790447235, 0.29479309916496277, 0.30842798948287964, 0.3220628798007965, 0.3356977701187134, 0.34933269023895264, 0.3629675805568695, 0.3766024708747864, 0.39023736119270325, 0.4038722813129425, 0.4175071716308594, 0.43114206194877625, 0.4447769522666931, 0.4584118723869324, 0.47204676270484924, 0.4856816530227661]}, "gradients/fc0.bias": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 2.0, 1.0, 2.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 2.0, 1.0, 1.0, 1.0, 0.0, 0.0, 1.0, 2.0, 202.0, 7.0, 3.0, 3.0, 4.0, 6.0, 0.0, 1.0, 2.0, 1.0, 1.0, 2.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 2.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-0.01262954156845808, -0.01222972571849823, -0.011829910799860954, -0.011430094949901104, -0.011030279099941254, -0.010630464181303978, -0.010230648331344128, -0.009830832481384277, -0.009431016631424427, -0.009031200781464577, -0.008631385862827301, -0.00823157001286745, -0.0078317541629076, -0.007431938778609037, -0.007032123394310474, -0.006632307544350624, -0.006232492160052061, -0.005832676775753498, -0.005432860925793648, -0.005033045541495085, -0.0046332296915352345, -0.0042334143072366714, -0.003833598690107465, -0.003433783072978258, -0.003033967688679695, -0.0026341520715504885, -0.002234336454421282, -0.001834520953707397, -0.0014347053365781903, -0.0010348898358643055, -0.0006350742187350988, -0.00023525860160589218, 0.00016455724835395813, 0.0005643728654831648, 0.0009641884244047105, 0.0013640039833262563, 0.001763819600455463, 0.0021636351011693478, 0.0025634507182985544, 0.002963266335427761, 0.0033630821853876114, 0.003762897802516818, 0.004162713419646025, 0.004562528803944588, 0.004962344653904438, 0.005362160038203001, 0.005761975422501564, 0.006161791272461414, 0.006561606656759977, 0.00696142204105854, 0.007361237891018391, 0.007761053275316954, 0.008160868659615517, 0.008560684509575367, 0.008960500359535217, 0.009360315278172493, 0.009760131128132343, 0.010159946978092194, 0.01055976189672947, 0.01095957774668932, 0.01135939359664917, 0.011759208515286446, 0.012159024365246296, 0.012558840215206146, 0.012958656065165997]}, "gradients/fc0.weight": {"_type": "histogram", "values": [2.0, 1.0, 1.0, 6.0, 2.0, 5.0, 8.0, 9.0, 9.0, 9.0, 16.0, 28.0, 22.0, 47.0, 41.0, 50.0, 43.0, 40.0, 58.0, 88.0, 87.0, 164.0, 239.0, 326.0, 404.0, 623.0, 1028.0, 511137.0, 5815.0, 1510.0, 909.0, 522.0, 345.0, 231.0, 177.0, 115.0, 94.0, 68.0, 47.0, 33.0, 40.0, 41.0, 24.0, 20.0, 13.0, 10.0, 6.0, 5.0, 3.0, 6.0, 4.0, 7.0, 1.0, 0.0, 2.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0], "bins": [-0.016043774783611298, -0.015468106605112553, -0.014892438426613808, -0.014316770248115063, -0.013741102069616318, -0.013165434822440147, -0.012589766643941402, -0.012014098465442657, -0.011438430286943913, -0.010862762108445168, -0.010287093929946423, -0.009711425751447678, -0.009135758504271507, -0.008560089394450188, -0.007984422147274017, -0.007408753968775272, -0.006833085790276527, -0.0062574176117777824, -0.0056817494332790375, -0.00510608172044158, -0.004530413541942835, -0.00395474536344409, -0.0033790774177759886, -0.0028034094721078873, -0.0022277412936091423, -0.0016520732315257192, -0.001076405169442296, -0.0005007371073588729, 7.493095472455025e-05, 0.0006505991332232952, 0.0012262670788913965, 0.0018019350245594978, 0.0023776013404130936, 0.0029532695189118385, 0.00352893746457994, 0.004104605410248041, 0.004680273588746786, 0.005255941767245531, 0.005831609480082989, 0.006407277658581734, 0.006982945837080479, 0.007558614015579224, 0.008134282194077969, 0.008709950372576714, 0.009285617619752884, 0.009861286729574203, 0.010436953976750374, 0.011012622155249119, 0.011588290333747864, 0.012163958512246609, 0.012739626690745354, 0.013315294869244099, 0.013890963047742844, 0.014466630294919014, 0.015042298473417759, 0.015617966651916504, 0.016193635761737823, 0.016769303008913994, 0.017344972118735313, 0.017920639365911484, 0.018496308475732803, 0.019071975722908974, 0.019647644832730293, 0.020223312079906464, 0.020798979327082634]}, "gradients/val_fc1.bias": {"_type": "histogram", "values": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "bins": [-0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349, -0.12317647784948349]}, "gradients/val_fc1.weight": {"_type": "histogram", "values": [1.0, 1.0, 1.0, 6.0, 7.0, 4.0, 5.0, 4.0, 3.0, 6.0, 2.0, 1.0, 3.0, 6.0, 2.0, 2.0, 2.0, 1.0, 3.0, 4.0, 5.0, 3.0, 3.0, 2.0, 3.0, 4.0, 3.0, 1.0, 1.0, 3.0, 2.0, 5.0, 9.0, 4.0, 6.0, 0.0, 132.0, 1.0, 2.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-1.255070447921753, -1.2203434705734253, -1.1856164932250977, -1.1508893966674805, -1.1161624193191528, -1.0814354419708252, -1.046708345413208, -1.0119813680648804, -0.9772543907165527, -0.9425274133682251, -0.9078003764152527, -0.8730733394622803, -0.8383463621139526, -0.803619384765625, -0.7688923478126526, -0.7341653108596802, -0.6994383335113525, -0.6647113561630249, -0.6299843192100525, -0.5952572822570801, -0.5605303049087524, -0.5258033275604248, -0.4910762906074524, -0.45634928345680237, -0.42162227630615234, -0.3868952691555023, -0.3521682620048523, -0.31744125485420227, -0.28271424770355225, -0.24798724055290222, -0.2132602334022522, -0.17853322625160217, -0.1438063383102417, -0.10907933115959167, -0.07435232400894165, -0.039625316858291626, -0.0048983097076416016, 0.029828697443008423, 0.06455570459365845, 0.09928271174430847, 0.1340097188949585, 0.16873672604560852, 0.20346373319625854, 0.23819074034690857, 0.2729177474975586, 0.3076447546482086, 0.34237176179885864, 0.37709876894950867, 0.4118257761001587, 0.4465527832508087, 0.48127979040145874, 0.5160068273544312, 0.5507338047027588, 0.5854607820510864, 0.6201878190040588, 0.6549148559570312, 0.6896418333053589, 0.7243688106536865, 0.7590958476066589, 0.7938228845596313, 0.828549861907959, 0.8632768392562866, 0.898003876209259, 0.9327309131622314, 0.9674578905105591]}, "gradients/val_fc0.bias": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 2.0, 17.0, 53.0, 159.0, 6.0, 3.0, 0.0, 2.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-0.16552841663360596, -0.16004042327404022, -0.1545524299144745, -0.14906445145606995, -0.1435764580965042, -0.13808846473693848, -0.13260047137737274, -0.127112478017807, -0.12162449955940247, -0.11613650619983673, -0.11064852029085159, -0.10516052693128586, -0.09967254102230072, -0.09418454766273499, -0.08869655430316925, -0.08320856839418411, -0.07772057503461838, -0.07223258167505264, -0.0667445957660675, -0.06125660240650177, -0.05576861649751663, -0.0502806231379509, -0.04479263350367546, -0.039304643869400024, -0.03381665050983429, -0.028328660875558853, -0.022840671241283417, -0.01735267974436283, -0.011864690110087395, -0.006376700475811958, -0.0008887089788913727, 0.004599280655384064, 0.010087266564369202, 0.015575256198644638, 0.021063245832920074, 0.02655123732984066, 0.03203922510147095, 0.03752721846103668, 0.04301520809531212, 0.048503197729587555, 0.05399118363857269, 0.05947917327284813, 0.06496716290712357, 0.0704551562666893, 0.07594314217567444, 0.08143113553524017, 0.08691912889480591, 0.09240711480379105, 0.09789510816335678, 0.10338310152292252, 0.10887108743190765, 0.11435908079147339, 0.11984706670045853, 0.12533505260944366, 0.1308230459690094, 0.13631103932857513, 0.14179903268814087, 0.1472870260477066, 0.15277501940727234, 0.15826299786567688, 0.16375099122524261, 0.16923898458480835, 0.17472697794437408, 0.18021497130393982, 0.18570294976234436]}, "gradients/val_fc0.weight": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.0, 3.0, 3.0, 3.0, 5.0, 20.0, 37.0, 79.0, 150.0, 436.0, 2006.0, 520169.0, 1055.0, 330.0, 125.0, 49.0, 34.0, 13.0, 6.0, 4.0, 4.0, 1.0, 0.0, 2.0, 3.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-1.2450463771820068, -1.2026026248931885, -1.1601589918136597, -1.1177152395248413, -1.075271487236023, -1.0328278541564941, -0.9903841018676758, -0.9479403495788574, -0.9054966568946838, -0.8630529642105103, -0.8206092119216919, -0.7781655192375183, -0.7357218265533447, -0.6932780742645264, -0.6508343815803528, -0.6083906888961792, -0.5659469366073608, -0.5235032439231873, -0.4810594916343689, -0.4386157989501953, -0.39617207646369934, -0.35372835397720337, -0.3112846612930298, -0.2688409388065338, -0.22639727592468262, -0.18395355343818665, -0.14150984585285187, -0.09906613826751709, -0.05662241578102112, -0.014178693294525146, 0.028264999389648438, 0.07070872187614441, 0.1131523847579956, 0.15559610724449158, 0.19803981482982635, 0.24048352241516113, 0.2829272449016571, 0.3253709673881531, 0.36781466007232666, 0.41025838255882263, 0.4527021646499634, 0.49514588713645935, 0.5375896096229553, 0.5800333023071289, 0.6224770545959473, 0.6649207472801208, 0.7073644399642944, 0.7498081922531128, 0.7922518253326416, 0.8346955180168152, 0.8771392703056335, 0.9195829629898071, 0.9620267152786255, 1.0044703483581543, 1.0469141006469727, 1.089357852935791, 1.1318016052246094, 1.1742453575134277, 1.2166889905929565, 1.259132742881775, 1.3015764951705933, 1.344020128250122, 1.3864638805389404, 1.4289076328277588, 1.4713512659072876]}, "gradients/conv2.res1.conv1.weight": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 2.0, 1.0, 3.0, 1.0, 8.0, 6.0, 6.0, 6.0, 4.0, 3.0, 7.0, 4.0, 7.0, 9.0, 8.0, 20.0, 31.0, 40.0, 63.0, 116.0, 237.0, 7063.0, 849.0, 295.0, 160.0, 74.0, 55.0, 33.0, 20.0, 17.0, 11.0, 12.0, 11.0, 5.0, 6.0, 4.0, 5.0, 1.0, 4.0, 0.0, 2.0, 0.0, 1.0, 2.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0], "bins": [-1.1385383605957031, -1.1068021059036255, -1.0750658512115479, -1.0433295965194702, -1.0115933418273926, -0.9798571467399597, -0.9481209516525269, -0.9163846969604492, -0.8846484422683716, -0.852912187576294, -0.8211759328842163, -0.7894397377967834, -0.7577034831047058, -0.7259672284126282, -0.6942310333251953, -0.6624947786331177, -0.63075852394104, -0.5990222692489624, -0.5672860145568848, -0.5355498194694519, -0.5038135647773743, -0.47207731008529663, -0.4403410851955414, -0.40860486030578613, -0.3768686056137085, -0.34513235092163086, -0.3133961260318756, -0.28165990114212036, -0.24992364645004272, -0.21818740665912628, -0.18645116686820984, -0.1547149270772934, -0.1229788064956665, -0.09124256670475006, -0.05950632691383362, -0.027770087122917175, 0.003966152667999268, 0.03570239245891571, 0.06743863224983215, 0.0991748720407486, 0.13091111183166504, 0.16264735162258148, 0.19438359141349792, 0.22611983120441437, 0.2578560709953308, 0.28959232568740845, 0.3213285505771637, 0.35306477546691895, 0.3848010301589966, 0.4165372848510742, 0.44827350974082947, 0.4800097346305847, 0.5117459893226624, 0.54348224401474, 0.5752184391021729, 0.6069546937942505, 0.6386909484863281, 0.6704272031784058, 0.7021634578704834, 0.7338996529579163, 0.7656359076499939, 0.7973721623420715, 0.8291083574295044, 0.860844612121582, 0.8925808668136597]}, "gradients/conv2.res1.conv1.bias": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 2.0, 0.0, 0.0, 0.0, 0.0, 11.0, 4.0, 2.0, 3.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-1.323409914970398, -1.2938390970230103, -1.264268159866333, -1.2346973419189453, -1.205126404762268, -1.1755555868148804, -1.1459846496582031, -1.1164138317108154, -1.0868428945541382, -1.0572720766067505, -1.0277011394500732, -0.9981302618980408, -0.9685593843460083, -0.9389885067939758, -0.9094176292419434, -0.8798467516899109, -0.8502758741378784, -0.820704996585846, -0.7911341190338135, -0.761563241481781, -0.7319923639297485, -0.7024214863777161, -0.6728506088256836, -0.6432797312736511, -0.6137089133262634, -0.584138035774231, -0.5545671582221985, -0.524996280670166, -0.49542540311813354, -0.4658545255661011, -0.4362836480140686, -0.40671277046203613, -0.37714189291000366, -0.3475710153579712, -0.3180001378059387, -0.28842926025390625, -0.2588583827018738, -0.2292875200510025, -0.19971664249897003, -0.17014576494693756, -0.1405748724937439, -0.11100399494171143, -0.08143311738967896, -0.05186224728822708, -0.02229136973619461, 0.007279500365257263, 0.036850377917289734, 0.0664212554693222, 0.09599211812019348, 0.12556299567222595, 0.15513387322425842, 0.1847047507762909, 0.21427562832832336, 0.24384649097919464, 0.2734173536300659, 0.3029882311820984, 0.33255910873413086, 0.36212998628616333, 0.3917008638381958, 0.42127174139022827, 0.45084261894226074, 0.4804134964942932, 0.5099843740463257, 0.5395552515983582, 0.5691261291503906]}, "gradients/conv2.res1.conv0.weight": {"_type": "histogram", "values": [3.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 3.0, 2.0, 3.0, 1.0, 2.0, 8.0, 4.0, 2.0, 5.0, 5.0, 1.0, 8.0, 9.0, 11.0, 12.0, 7.0, 19.0, 11.0, 22.0, 40.0, 51.0, 65.0, 85.0, 149.0, 354.0, 7118.0, 607.0, 195.0, 124.0, 74.0, 65.0, 41.0, 29.0, 26.0, 13.0, 7.0, 8.0, 8.0, 2.0, 3.0, 3.0, 2.0, 1.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0], "bins": [-1.087027668952942, -1.0548139810562134, -1.0226004123687744, -0.9903867244720459, -0.9581730365753174, -0.9259593486785889, -0.8937457203865051, -0.8615320920944214, -0.8293184041976929, -0.7971047163009644, -0.7648910880088806, -0.7326774597167969, -0.7004637718200684, -0.6682500839233398, -0.6360364556312561, -0.6038228273391724, -0.5716091394424438, -0.5393954515457153, -0.5071818232536316, -0.47496816515922546, -0.44275450706481934, -0.4105408489704132, -0.3783271908760071, -0.34611353278160095, -0.3138998746871948, -0.2816862165927887, -0.24947255849838257, -0.21725890040397644, -0.1850452423095703, -0.15283158421516418, -0.12061792612075806, -0.08840426802635193, -0.056190550327301025, -0.023976892232894897, 0.00823676586151123, 0.04045042395591736, 0.07266408205032349, 0.10487774014472961, 0.13709139823913574, 0.16930505633354187, 0.201518714427948, 0.23373237252235413, 0.26594603061676025, 0.2981596887111664, 0.3303733468055725, 0.36258700489997864, 0.39480066299438477, 0.4270143210887909, 0.459227979183197, 0.49144163727760315, 0.5236552953720093, 0.5558689832687378, 0.5880826115608215, 0.6202962398529053, 0.6525099277496338, 0.6847236156463623, 0.716937243938446, 0.7491508722305298, 0.7813645601272583, 0.8135782480239868, 0.8457918763160706, 0.8780055046081543, 0.9102191925048828, 0.9424328804016113, 0.9746465086936951]}, "gradients/conv2.res1.conv0.bias": {"_type": "histogram", "values": [1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 2.0, 2.0, 1.0, 0.0, 1.0, 3.0, 2.0, 4.0, 1.0, 0.0, 0.0, 1.0, 2.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0, 2.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-0.960224986076355, -0.9367457032203674, -0.9132663607597351, -0.8897870779037476, -0.8663077354431152, -0.8428284525871277, -0.8193491697311401, -0.7958698272705078, -0.7723905444145203, -0.7489112615585327, -0.7254319190979004, -0.7019526362419128, -0.6784732937812805, -0.654994010925293, -0.6315146684646606, -0.6080353856086731, -0.5845561027526855, -0.561076819896698, -0.5375974774360657, -0.5141181945800781, -0.4906388819217682, -0.46715956926345825, -0.4436802566051483, -0.4202009439468384, -0.39672160148620605, -0.3732422888278961, -0.3497629761695862, -0.32628369331359863, -0.3028043806552887, -0.27932506799697876, -0.2558457553386688, -0.23236645758152008, -0.20888715982437134, -0.1854078471660614, -0.16192854940891266, -0.13844923675060272, -0.11496993154287338, -0.09149062633514404, -0.0680113136768341, -0.044532015919685364, -0.02105271816253662, 0.0024265889078378677, 0.025905895978212357, 0.049385204911231995, 0.07286451011896133, 0.09634381532669067, 0.11982312798500061, 0.14330242574214935, 0.16678175330162048, 0.19026106595993042, 0.21374036371707916, 0.2372196763753891, 0.26069897413253784, 0.2841782867908478, 0.3076575994491577, 0.33113688230514526, 0.3546162247657776, 0.3780955374240875, 0.40157485008239746, 0.425054132938385, 0.44853344559669495, 0.4720127582550049, 0.4954920709133148, 0.5189713835716248, 0.5424506664276123]}, "gradients/conv2.res0.conv1.weight": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 1.0, 2.0, 2.0, 0.0, 0.0, 1.0, 1.0, 2.0, 4.0, 1.0, 0.0, 0.0, 5.0, 4.0, 2.0, 3.0, 3.0, 7.0, 5.0, 10.0, 7.0, 11.0, 14.0, 36.0, 45.0, 104.0, 360.0, 8333.0, 99.0, 44.0, 24.0, 20.0, 5.0, 11.0, 9.0, 7.0, 7.0, 3.0, 3.0, 1.0, 3.0, 3.0, 0.0, 1.0, 0.0, 1.0, 1.0, 2.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 2.0], "bins": [-1.5866999626159668, -1.5358036756515503, -1.4849073886871338, -1.4340111017227173, -1.3831148147583008, -1.3322185277938843, -1.2813222408294678, -1.2304260730743408, -1.1795296669006348, -1.1286333799362183, -1.0777370929718018, -1.0268408060073853, -0.9759445190429688, -0.9250482320785522, -0.8741520047187805, -0.823255717754364, -0.7723594903945923, -0.7214632034301758, -0.6705669164657593, -0.6196706295013428, -0.5687743425369263, -0.5178780555725098, -0.46698182821273804, -0.41608554124832153, -0.3651893138885498, -0.3142930269241333, -0.2633967399597168, -0.21250048279762268, -0.16160419583320618, -0.11070790886878967, -0.05981165170669556, -0.008915364742279053, 0.04198110103607178, 0.09287738054990768, 0.1437736600637436, 0.1946699321269989, 0.2455662190914154, 0.2964625060558319, 0.347358763217926, 0.39825505018234253, 0.4491513967514038, 0.5000476837158203, 0.5509439706802368, 0.6018402576446533, 0.6527365446090698, 0.7036328315734863, 0.7545290589332581, 0.8054253458976746, 0.8563215732574463, 0.9072178602218628, 0.9581141471862793, 1.0090104341506958, 1.0599067211151123, 1.1108030080795288, 1.1616992950439453, 1.2125954627990723, 1.2634918689727783, 1.3143881559371948, 1.3652844429016113, 1.4161807298660278, 1.4670770168304443, 1.5179733037948608, 1.5688695907592773, 1.6197657585144043, 1.6706620454788208]}, "gradients/conv2.res0.conv1.bias": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 3.0, 0.0, 1.0, 1.0, 10.0, 5.0, 2.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-1.6459442377090454, -1.6084020137786865, -1.570859670639038, -1.5333174467086792, -1.4957752227783203, -1.4582328796386719, -1.420690655708313, -1.383148431777954, -1.3456060886383057, -1.3080638647079468, -1.2705215215682983, -1.2329792976379395, -1.195436954498291, -1.1578947305679321, -1.1203525066375732, -1.0828101634979248, -1.045267939567566, -1.007725715637207, -0.9701833724975586, -0.9326411485671997, -0.895098865032196, -0.8575565814971924, -0.8200143575668335, -0.7824720740318298, -0.7449297904968262, -0.7073875069618225, -0.6698452234268188, -0.63230299949646, -0.5947607159614563, -0.5572184324264526, -0.5196762084960938, -0.4821339249610901, -0.4445915222167969, -0.4070492386817932, -0.36950698494911194, -0.33196473121643066, -0.294422447681427, -0.25688016414642334, -0.21933791041374207, -0.1817956566810608, -0.14425337314605713, -0.10671110451221466, -0.06916883587837219, -0.031626567244529724, 0.005915701389312744, 0.04345797002315521, 0.08100023865699768, 0.11854249238967896, 0.15608477592468262, 0.19362704455852509, 0.23116931319236755, 0.26871156692504883, 0.3062538504600525, 0.34379613399505615, 0.3813383877277374, 0.4188806414604187, 0.45642292499542236, 0.493965208530426, 0.5315074920654297, 0.5690497159957886, 0.6065919995307922, 0.6441342830657959, 0.6816765069961548, 0.7192187905311584, 0.7567610740661621]}, "gradients/conv2.res0.conv0.weight": {"_type": "histogram", "values": [1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 2.0, 2.0, 3.0, 2.0, 1.0, 1.0, 3.0, 1.0, 3.0, 8.0, 8.0, 7.0, 16.0, 16.0, 24.0, 22.0, 28.0, 38.0, 109.0, 357.0, 8158.0, 161.0, 89.0, 42.0, 39.0, 16.0, 10.0, 9.0, 5.0, 5.0, 3.0, 4.0, 4.0, 5.0, 2.0, 1.0, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0], "bins": [-1.4903194904327393, -1.4335602521896362, -1.3768011331558228, -1.3200418949127197, -1.2632827758789062, -1.2065235376358032, -1.1497642993927002, -1.0930051803588867, -1.0362459421157837, -0.9794867634773254, -0.9227275848388672, -0.8659683465957642, -0.8092091679573059, -0.7524499893188477, -0.6956907510757446, -0.6389315724372864, -0.5821723937988281, -0.5254132151603699, -0.46865400671958923, -0.4118947982788086, -0.35513561964035034, -0.2983764410018921, -0.24161723256111145, -0.1848580241203308, -0.12809884548187256, -0.07133965194225311, -0.014580458402633667, 0.04217873513698578, 0.09893792867660522, 0.15569710731506348, 0.21245631575584412, 0.26921552419662476, 0.325974702835083, 0.38273388147354126, 0.4394930899143219, 0.49625229835510254, 0.5530114769935608, 0.609770655632019, 0.6665298938751221, 0.7232890725135803, 0.7800482511520386, 0.8368074297904968, 0.8935666084289551, 0.9503258466720581, 1.0070850849151611, 1.0638442039489746, 1.1206034421920776, 1.1773626804351807, 1.2341217994689941, 1.2908810377120972, 1.3476401567459106, 1.4043993949890137, 1.4611585140228271, 1.5179177522659302, 1.5746769905090332, 1.6314361095428467, 1.6881953477859497, 1.7449545860290527, 1.8017137050628662, 1.8584729433059692, 1.9152321815490723, 1.9719913005828857, 2.028750419616699, 2.085509777069092, 2.1422688961029053]}, "gradients/conv2.res0.conv0.bias": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 1.0, 3.0, 19.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-1.2812526226043701, -1.2444995641708374, -1.2077463865280151, -1.1709933280944824, -1.1342401504516602, -1.0974870920181274, -1.0607339143753052, -1.0239808559417725, -0.9872276782989502, -0.9504745602607727, -0.9137214422225952, -0.8769683241844177, -0.8402152061462402, -0.8034620881080627, -0.7667089700698853, -0.7299559116363525, -0.693202793598175, -0.6564496755599976, -0.6196965575218201, -0.5829434394836426, -0.5461903214454651, -0.5094372034072876, -0.4726841151714325, -0.435930997133255, -0.3991779088973999, -0.3624247908592224, -0.3256716728210449, -0.28891855478286743, -0.25216543674468994, -0.21541233360767365, -0.17865923047065735, -0.14190611243247986, -0.10515296459197998, -0.06839984655380249, -0.0316467359662056, 0.005106374621391296, 0.04185949265956879, 0.07861261069774628, 0.11536571383476257, 0.15211883187294006, 0.18887197971343994, 0.22562509775161743, 0.2623782157897949, 0.2991313338279724, 0.3358844518661499, 0.3726375699043274, 0.4093906581401825, 0.44614377617836, 0.4828968644142151, 0.5196499824523926, 0.5564031004905701, 0.5931562185287476, 0.629909336566925, 0.6666624546051025, 0.7034155130386353, 0.7401686906814575, 0.7769217491149902, 0.8136748671531677, 0.8504279851913452, 0.8871811032295227, 0.9239342212677002, 0.9606873393058777, 0.9974404573440552, 1.034193515777588, 1.0709466934204102]}, "gradients/conv2.conv0.weight": {"_type": "histogram", "values": [2.0, 0.0, 2.0, 5.0, 5.0, 3.0, 4.0, 7.0, 8.0, 10.0, 13.0, 7.0, 9.0, 13.0, 32.0, 33.0, 43.0, 67.0, 79.0, 148.0, 182.0, 240.0, 369.0, 523.0, 3492.0, 1907.0, 559.0, 350.0, 248.0, 169.0, 125.0, 104.0, 81.0, 66.0, 68.0, 44.0, 29.0, 36.0, 21.0, 14.0, 15.0, 9.0, 17.0, 7.0, 3.0, 6.0, 3.0, 7.0, 1.0, 1.0, 2.0, 4.0, 2.0, 2.0, 2.0, 5.0, 4.0, 2.0, 2.0, 0.0, 2.0, 1.0, 1.0, 1.0], "bins": [-0.8998962640762329, -0.8638085126876831, -0.8277207016944885, -0.791632890701294, -0.7555451393127441, -0.7194573879241943, -0.6833695769309998, -0.6472817659378052, -0.6111940145492554, -0.5751062631607056, -0.539018452167511, -0.5029306411743164, -0.4668428897857666, -0.4307551085948944, -0.3946673274040222, -0.35857954621315, -0.32249176502227783, -0.28640398383140564, -0.25031620264053345, -0.21422842144966125, -0.17814064025878906, -0.14205285906791687, -0.10596507787704468, -0.06987729668617249, -0.03378951549530029, 0.0022982656955718994, 0.03838604688644409, 0.07447382807731628, 0.11056160926818848, 0.14664939045906067, 0.18273717164993286, 0.21882495284080505, 0.2549128532409668, 0.291000634431839, 0.3270884156227112, 0.3631761968135834, 0.39926397800445557, 0.43535175919532776, 0.47143954038619995, 0.5075273513793945, 0.5436151027679443, 0.5797028541564941, 0.6157906651496887, 0.6518784761428833, 0.6879662275314331, 0.7240539789199829, 0.7601417899131775, 0.7962296009063721, 0.8323173522949219, 0.8684051036834717, 0.9044929146766663, 0.9405807256698608, 0.9766684770584106, 1.0127562284469604, 1.0488440990447998, 1.0849318504333496, 1.1210196018218994, 1.1571073532104492, 1.193195104598999, 1.2292829751968384, 1.2653707265853882, 1.301458477973938, 1.3375463485717773, 1.3736340999603271, 1.409721851348877]}, "gradients/conv2.conv0.bias": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 2.0, 0.0, 2.0, 1.0, 12.0, 2.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-1.844306230545044, -1.8021249771118164, -1.7599436044692993, -1.7177622318267822, -1.6755809783935547, -1.6333997249603271, -1.59121835231781, -1.549036979675293, -1.5068557262420654, -1.464674472808838, -1.4224931001663208, -1.3803117275238037, -1.3381304740905762, -1.2959492206573486, -1.2537678480148315, -1.2115864753723145, -1.169405221939087, -1.1272239685058594, -1.0850425958633423, -1.0428612232208252, -1.0006799697875977, -0.9584986567497253, -0.916317343711853, -0.8741360306739807, -0.8319547176361084, -0.7897734045982361, -0.7475920915603638, -0.7054107785224915, -0.6632294654846191, -0.6210481524467468, -0.5788668394088745, -0.5366855263710022, -0.4945041537284851, -0.4523228406906128, -0.4101415276527405, -0.36796021461486816, -0.32577890157699585, -0.28359758853912354, -0.24141627550125122, -0.1992349624633789, -0.1570536494255066, -0.11487233638763428, -0.07269102334976196, -0.03050971031188965, 0.011671602725982666, 0.05385291576385498, 0.0960342288017273, 0.1382155418395996, 0.18039685487747192, 0.22257816791534424, 0.26475948095321655, 0.30694079399108887, 0.3491221070289612, 0.3913034200668335, 0.4334847331047058, 0.4756660461425781, 0.5178473591804504, 0.5600286722183228, 0.6022099852561951, 0.6443912982940674, 0.6865726113319397, 0.728753924369812, 0.7709352374076843, 0.8131165504455566, 0.855297863483429]}, "gradients/conv1.res1.conv1.weight": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 2.0, 0.0, 3.0, 3.0, 1.0, 1.0, 0.0, 2.0, 5.0, 3.0, 2.0, 2.0, 4.0, 5.0, 5.0, 9.0, 8.0, 13.0, 8.0, 8.0, 11.0, 13.0, 21.0, 24.0, 26.0, 23.0, 48.0, 58.0, 85.0, 117.0, 285.0, 7092.0, 561.0, 223.0, 137.0, 104.0, 65.0, 47.0, 35.0, 25.0, 22.0, 18.0, 13.0, 10.0, 8.0, 16.0, 5.0, 1.0, 10.0, 4.0, 1.0, 8.0, 3.0, 1.0, 4.0, 2.0, 1.0, 2.0], "bins": [-0.33282122015953064, -0.3240095376968384, -0.3151978552341461, -0.30638617277145386, -0.2975744903087616, -0.28876280784606934, -0.2799511253833771, -0.2711394429206848, -0.26232776045799255, -0.2535160779953003, -0.24470439553260803, -0.23589271306991577, -0.2270810306072235, -0.21826934814453125, -0.209457665681839, -0.20064598321914673, -0.19183430075645447, -0.1830226182937622, -0.17421093583106995, -0.16539925336837769, -0.15658757090568542, -0.14777588844299316, -0.1389642059803009, -0.13015252351760864, -0.12134084105491638, -0.11252915859222412, -0.10371747612953186, -0.0949057936668396, -0.08609411120414734, -0.07728242874145508, -0.06847074627876282, -0.05965906381607056, -0.050847381353378296, -0.042035698890686035, -0.033224016427993774, -0.024412333965301514, -0.015600651502609253, -0.006788969039916992, 0.0020227134227752686, 0.01083439588546753, 0.01964607834815979, 0.02845776081085205, 0.03726944327354431, 0.04608112573623657, 0.05489280819892883, 0.0637044906616211, 0.07251617312431335, 0.08132785558700562, 0.09013953804969788, 0.09895122051239014, 0.1077629029750824, 0.11657458543777466, 0.12538626790046692, 0.13419795036315918, 0.14300963282585144, 0.1518213152885437, 0.16063299775123596, 0.16944468021392822, 0.17825636267662048, 0.18706804513931274, 0.195879727602005, 0.20469141006469727, 0.21350309252738953, 0.2223147749900818, 0.23112645745277405]}, "gradients/conv1.res1.conv1.bias": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 2.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 2.0, 0.0, 3.0, 2.0, 0.0, 2.0, 0.0, 2.0, 1.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-2.233947515487671, -2.1643993854522705, -2.094851493835449, -2.025303363800049, -1.955755352973938, -1.8862073421478271, -1.8166592121124268, -1.747111201286316, -1.677563190460205, -1.6080151796340942, -1.5384671688079834, -1.468919038772583, -1.3993710279464722, -1.3298230171203613, -1.260274887084961, -1.19072687625885, -1.1211788654327393, -1.0516308546066284, -0.9820827841758728, -0.9125347137451172, -0.8429867029190063, -0.7734386920928955, -0.7038906216621399, -0.6343425512313843, -0.5647945404052734, -0.4952464997768402, -0.425698459148407, -0.35615041851997375, -0.2866023778915405, -0.2170543372631073, -0.14750629663467407, -0.07795825600624084, -0.008410453796386719, 0.06113758683204651, 0.13068562746047974, 0.20023366808891296, 0.2697817087173462, 0.3393297493457794, 0.40887778997421265, 0.4784258306026459, 0.5479738712310791, 0.6175218820571899, 0.6870699524879456, 0.7566180229187012, 0.826166033744812, 0.8957140445709229, 0.9652621150016785, 1.034810185432434, 1.104358196258545, 1.1739062070846558, 1.2434542179107666, 1.313002347946167, 1.3825503587722778, 1.4520983695983887, 1.521646499633789, 1.5911945104599, 1.6607425212860107, 1.7302905321121216, 1.7998385429382324, 1.8693866729736328, 1.9389346837997437, 2.0084826946258545, 2.078030824661255, 2.147578716278076, 2.2171268463134766]}, "gradients/conv1.res1.conv0.weight": {"_type": "histogram", "values": [1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 2.0, 2.0, 0.0, 1.0, 4.0, 4.0, 3.0, 3.0, 7.0, 7.0, 3.0, 8.0, 16.0, 12.0, 21.0, 35.0, 68.0, 122.0, 481.0, 7607.0, 281.0, 137.0, 81.0, 59.0, 48.0, 27.0, 21.0, 29.0, 16.0, 16.0, 10.0, 6.0, 11.0, 4.0, 5.0, 5.0, 6.0, 3.0, 7.0, 6.0, 1.0, 3.0, 6.0, 4.0, 4.0, 1.0, 1.0, 1.0, 1.0, 2.0, 0.0, 1.0], "bins": [-0.4182409346103668, -0.4047949016094208, -0.39134886860847473, -0.3779028356075287, -0.36445680260658264, -0.3510107696056366, -0.33756473660469055, -0.3241187036037445, -0.31067267060279846, -0.2972266376018524, -0.28378060460090637, -0.2703345715999603, -0.2568885385990143, -0.24344250559806824, -0.2299964725971222, -0.21655043959617615, -0.2031044065952301, -0.18965837359428406, -0.176212340593338, -0.16276630759239197, -0.14932027459144592, -0.13587424159049988, -0.12242820858955383, -0.10898217558860779, -0.09553614258766174, -0.0820901095867157, -0.06864407658576965, -0.05519804358482361, -0.041752010583877563, -0.02830597758293152, -0.014859944581985474, -0.0014139115810394287, 0.012032151222229004, 0.02547818422317505, 0.038924217224121094, 0.05237025022506714, 0.06581628322601318, 0.07926231622695923, 0.09270834922790527, 0.10615438222885132, 0.11960041522979736, 0.1330464482307434, 0.14649248123168945, 0.1599385142326355, 0.17338454723358154, 0.1868305802345276, 0.20027661323547363, 0.21372264623641968, 0.22716867923736572, 0.24061471223831177, 0.2540607452392578, 0.26750677824020386, 0.2809528112411499, 0.29439884424209595, 0.307844877243042, 0.32129091024398804, 0.3347369432449341, 0.3481829762458801, 0.36162900924682617, 0.3750750422477722, 0.38852107524871826, 0.4019671082496643, 0.41541314125061035, 0.4288591742515564, 0.44230520725250244]}, "gradients/conv1.res1.conv0.bias": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.0, 19.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-0.9290836453437805, -0.9098771810531616, -0.890670657157898, -0.871464192867279, -0.8522577285766602, -0.8330512642860413, -0.8138447999954224, -0.7946382761001587, -0.7754318118095398, -0.7562253475189209, -0.7370188236236572, -0.7178123593330383, -0.6986058950424194, -0.6793994307518005, -0.6601929664611816, -0.640986442565918, -0.6217799782752991, -0.6025735139846802, -0.5833669900894165, -0.5641605257987976, -0.5449540615081787, -0.5257475972175598, -0.5065411329269409, -0.48733460903167725, -0.46812814474105835, -0.44892168045043945, -0.42971518635749817, -0.4105086922645569, -0.391302227973938, -0.3720957636833191, -0.3528892695903778, -0.3336827754974365, -0.31447625160217285, -0.29526978731155396, -0.27606329321861267, -0.2568567991256714, -0.2376503348350525, -0.2184438556432724, -0.1992373764514923, -0.18003089725971222, -0.16082441806793213, -0.14161793887615204, -0.12241145968437195, -0.10320498049259186, -0.08399850130081177, -0.06479202210903168, -0.04558554291725159, -0.026379063725471497, -0.007172584533691406, 0.012033894658088684, 0.031240373849868774, 0.050446853041648865, 0.06965333223342896, 0.08885981142520905, 0.10806629061698914, 0.12727276980876923, 0.14647924900054932, 0.1656857281923294, 0.1848922073841095, 0.2040986865758896, 0.22330516576766968, 0.24251164495944977, 0.26171812415122986, 0.28092461824417114, 0.30013108253479004]}, "gradients/conv1.res0.conv1.weight": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 3.0, 1.0, 3.0, 6.0, 2.0, 5.0, 3.0, 2.0, 3.0, 9.0, 13.0, 20.0, 14.0, 19.0, 23.0, 23.0, 25.0, 32.0, 41.0, 55.0, 156.0, 8231.0, 207.0, 63.0, 46.0, 45.0, 21.0, 18.0, 25.0, 19.0, 17.0, 12.0, 10.0, 13.0, 5.0, 4.0, 6.0, 2.0, 3.0, 2.0, 2.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-0.5814620852470398, -0.5630635619163513, -0.5446650385856628, -0.5262664556503296, -0.5078679323196411, -0.48946940898895264, -0.47107088565826416, -0.4526723623275757, -0.4342738091945648, -0.41587528586387634, -0.3974767327308655, -0.379078209400177, -0.3606796860694885, -0.34228113293647766, -0.3238826096057892, -0.3054840564727783, -0.28708553314208984, -0.26868700981140137, -0.2502884566783905, -0.23188993334770203, -0.21349139511585236, -0.19509285688400269, -0.1766943335533142, -0.15829579532146454, -0.13989725708961487, -0.1214987188577652, -0.10310018807649612, -0.08470165729522705, -0.06630311906337738, -0.04790458083152771, -0.029506050050258636, -0.011107519268989563, 0.007290959358215332, 0.025689493864774704, 0.044088028371334076, 0.06248656287789345, 0.08088509738445282, 0.09928363561630249, 0.11768216639757156, 0.13608069717884064, 0.1544792354106903, 0.17287777364253998, 0.19127631187438965, 0.20967483520507812, 0.2280733734369278, 0.24647191166877747, 0.26487043499946594, 0.2832689881324768, 0.3016675114631653, 0.32006603479385376, 0.3384645879268646, 0.3568631112575531, 0.37526166439056396, 0.39366018772125244, 0.4120587110519409, 0.4304572343826294, 0.44885578751564026, 0.46725431084632874, 0.4856528639793396, 0.5040513873100281, 0.5224499106407166, 0.5408484935760498, 0.5592470169067383, 0.5776455402374268, 0.5960440635681152]}, "gradients/conv1.res0.conv1.bias": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 2.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 3.0, 1.0, 1.0, 1.0, 0.0, 2.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 3.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-2.1093125343322754, -2.043827772140503, -1.978342890739441, -1.912858009338379, -1.8473732471466064, -1.7818883657455444, -1.7164034843444824, -1.65091872215271, -1.585433840751648, -1.519948959350586, -1.4544641971588135, -1.3889793157577515, -1.3234944343566895, -1.258009672164917, -1.192524790763855, -1.127039909362793, -1.0615551471710205, -0.9960703253746033, -0.930585503578186, -0.865100622177124, -0.7996158003807068, -0.7341309785842896, -0.6686460971832275, -0.6031612753868103, -0.5376764535903931, -0.47219163179397583, -0.4067067801952362, -0.3412219285964966, -0.27573710680007935, -0.2102522850036621, -0.14476743340492249, -0.07928258180618286, -0.013797760009765625, 0.051687076687812805, 0.11717191338539124, 0.18265675008296967, 0.2481415867805481, 0.31362640857696533, 0.37911126017570496, 0.4445961117744446, 0.5100809335708618, 0.575565755367279, 0.6410505771636963, 0.7065354585647583, 0.7720202803611755, 0.8375051021575928, 0.9029899835586548, 0.968474805355072, 1.0339596271514893, 1.0994445085525513, 1.1649292707443237, 1.2304141521453857, 1.2958989143371582, 1.3613837957382202, 1.4268686771392822, 1.4923534393310547, 1.5578383207321167, 1.6233232021331787, 1.6888079643249512, 1.7542928457260132, 1.8197777271270752, 1.8852624893188477, 1.9507473707199097, 2.0162322521209717, 2.081717014312744]}, "gradients/conv1.res0.conv0.weight": {"_type": "histogram", "values": [1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 2.0, 1.0, 1.0, 2.0, 0.0, 1.0, 2.0, 1.0, 1.0, 3.0, 1.0, 2.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 5.0, 4.0, 3.0, 6.0, 5.0, 5.0, 5.0, 5.0, 15.0, 17.0, 17.0, 33.0, 28.0, 38.0, 99.0, 8188.0, 376.0, 139.0, 84.0, 35.0, 22.0, 16.0, 13.0, 12.0, 7.0, 6.0, 2.0, 3.0, 2.0, 2.0, 1.0, 0.0, 1.0], "bins": [-1.0773676633834839, -1.054390549659729, -1.0314135551452637, -1.0084364414215088, -0.9854594469070435, -0.9624823331832886, -0.9395053386688232, -0.9165282249450684, -0.8935511708259583, -0.8705741167068481, -0.847597062587738, -0.8246200084686279, -0.8016429543495178, -0.7786659002304077, -0.7556887865066528, -0.7327117323875427, -0.7097346782684326, -0.6867576241493225, -0.6637805700302124, -0.6408035159111023, -0.6178264617919922, -0.5948493480682373, -0.571872353553772, -0.5488952398300171, -0.5259182453155518, -0.5029411911964417, -0.47996413707733154, -0.45698708295822144, -0.43400999903678894, -0.41103294491767883, -0.3880558907985687, -0.36507880687713623, -0.3421017825603485, -0.3191247284412384, -0.2961476743221283, -0.2731705904006958, -0.2501935362815857, -0.22721648216247559, -0.20423942804336548, -0.18126235902309418, -0.15828529000282288, -0.13530823588371277, -0.11233116686344147, -0.08935411274433136, -0.06637705117464066, -0.04339998960494995, -0.020422935485839844, 0.0025541335344314575, 0.02553117275238037, 0.048508234322071075, 0.07148529589176178, 0.09446235001087189, 0.11743941158056259, 0.1404164731502533, 0.1633935272693634, 0.1863705962896347, 0.2093476504087448, 0.23232470452785492, 0.2553017735481262, 0.27827882766723633, 0.30125588178634644, 0.32423293590545654, 0.34720999002456665, 0.37018707394599915, 0.39316412806510925]}, "gradients/conv1.res0.conv0.bias": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 25.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-1.8552547693252563, -1.8101418018341064, -1.765028953552246, -1.7199161052703857, -1.6748031377792358, -1.629690170288086, -1.5845773220062256, -1.5394644737243652, -1.4943515062332153, -1.4492385387420654, -1.404125690460205, -1.3590128421783447, -1.3138998746871948, -1.268786907196045, -1.2236740589141846, -1.1785612106323242, -1.1334482431411743, -1.0883352756500244, -1.043222427368164, -0.9981095194816589, -0.9529966115951538, -0.9078837037086487, -0.8627707958221436, -0.8176578879356384, -0.7725449800491333, -0.7274320721626282, -0.682319164276123, -0.6372062563896179, -0.5920933485031128, -0.5469804406166077, -0.5018675327301025, -0.4567546248435974, -0.41164159774780273, -0.3665286898612976, -0.3214157819747925, -0.27630287408828735, -0.23118996620178223, -0.1860770583152771, -0.14096415042877197, -0.09585124254226685, -0.05073833465576172, -0.005625426769256592, 0.039487481117248535, 0.08460038900375366, 0.1297132968902588, 0.17482620477676392, 0.21993911266326904, 0.26505202054977417, 0.3101649284362793, 0.3552778363227844, 0.40039074420928955, 0.4455036520957947, 0.4906165599822998, 0.5357294678688049, 0.5808423757553101, 0.6259552836418152, 0.6710681915283203, 0.7161810994148254, 0.7612940073013306, 0.8064069151878357, 0.8515198230743408, 0.896632730960846, 0.9417456388473511, 0.9868585467338562, 1.0319714546203613]}, "gradients/conv1.conv0.weight": {"_type": "histogram", "values": [5.0, 1.0, 2.0, 4.0, 4.0, 3.0, 4.0, 5.0, 3.0, 2.0, 3.0, 2.0, 0.0, 3.0, 12.0, 19.0, 24.0, 21.0, 39.0, 79.0, 166.0, 287.0, 440.0, 581.0, 626.0, 593.0, 457.0, 372.0, 242.0, 170.0, 99.0, 69.0, 59.0, 42.0, 29.0, 27.0, 19.0, 7.0, 13.0, 13.0, 9.0, 9.0, 7.0, 5.0, 5.0, 1.0, 3.0, 6.0, 0.0, 5.0, 1.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 4.0, 1.0, 0.0, 2.0], "bins": [-0.9579993486404419, -0.9195573329925537, -0.8811153173446655, -0.8426733016967773, -0.8042312860488892, -0.765789270401001, -0.7273473143577576, -0.6889052987098694, -0.6504632830619812, -0.612021267414093, -0.5735792517662048, -0.5351372361183167, -0.49669525027275085, -0.45825323462486267, -0.4198112487792969, -0.3813692331314087, -0.3429272174835205, -0.3044852018356323, -0.26604318618774414, -0.22760120034217834, -0.18915918469429016, -0.15071716904640198, -0.11227516829967499, -0.073833167552948, -0.035391151905059814, 0.003050856292247772, 0.04149286448955536, 0.07993487268686295, 0.11837688088417053, 0.15681889653205872, 0.1952608972787857, 0.2337028980255127, 0.27214503288269043, 0.3105870485305786, 0.3490290641784668, 0.3874710500240326, 0.4259130656719208, 0.46435508131980896, 0.5027970671653748, 0.5412390828132629, 0.5796810984611511, 0.6181231141090393, 0.6565651297569275, 0.6950071454048157, 0.7334491014480591, 0.7718911170959473, 0.8103331327438354, 0.8487751483917236, 0.8872171640396118, 0.9256591796875, 0.9641011953353882, 1.0025432109832764, 1.0409852266311646, 1.0794272422790527, 1.117869257926941, 1.156311273574829, 1.1947531700134277, 1.233195185661316, 1.271637201309204, 1.3100792169570923, 1.3485212326049805, 1.3869632482528687, 1.4254052639007568, 1.4638471603393555, 1.5022892951965332]}, "gradients/conv1.conv0.bias": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 2.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 4.0, 3.0, 1.0, 0.0, 0.0, 2.0, 2.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-3.5582456588745117, -3.4590094089508057, -3.3597731590270996, -3.2605366706848145, -3.1613004207611084, -3.0620641708374023, -2.962827682495117, -2.863591432571411, -2.764355182647705, -2.665118932723999, -2.565882682800293, -2.466646194458008, -2.3674099445343018, -2.2681736946105957, -2.1689372062683105, -2.0697009563446045, -1.9704647064208984, -1.8712284564971924, -1.7719920873641968, -1.6727557182312012, -1.5735194683074951, -1.474283218383789, -1.3750468492507935, -1.2758104801177979, -1.1765742301940918, -1.0773379802703857, -0.9781016111373901, -0.8788653016090393, -0.7796289920806885, -0.6803926825523376, -0.5811563730239868, -0.481920063495636, -0.38268375396728516, -0.2834474444389343, -0.1842111349105835, -0.08497482538223267, 0.014261484146118164, 0.113497793674469, 0.21273410320281982, 0.31197041273117065, 0.4112067222595215, 0.5104430317878723, 0.6096793413162231, 0.708915650844574, 0.8081519603729248, 0.9073882699012756, 1.0066245794296265, 1.105860948562622, 1.2050971984863281, 1.3043334484100342, 1.4035698175430298, 1.5028061866760254, 1.6020424365997314, 1.7012786865234375, 1.800515055656433, 1.8997514247894287, 1.9989876747131348, 2.098223924636841, 2.197460174560547, 2.296696662902832, 2.395932912826538, 2.495169162750244, 2.5944056510925293, 2.6936419010162354, 2.7928781509399414]}, "gradients/conv0.res1.conv1.weight": {"_type": "histogram", "values": [2.0, 1.0, 2.0, 1.0, 2.0, 3.0, 3.0, 2.0, 1.0, 1.0, 1.0, 5.0, 3.0, 1.0, 0.0, 3.0, 0.0, 2.0, 2.0, 4.0, 5.0, 1.0, 3.0, 4.0, 4.0, 1.0, 3.0, 6.0, 3.0, 2.0, 5.0, 17.0, 17.0, 17.0, 32.0, 27.0, 57.0, 1819.0, 105.0, 37.0, 26.0, 16.0, 11.0, 6.0, 5.0, 2.0, 5.0, 2.0, 6.0, 1.0, 0.0, 0.0, 3.0, 3.0, 1.0, 2.0, 3.0, 4.0, 1.0, 0.0, 0.0, 0.0, 1.0, 2.0], "bins": [-0.5485562682151794, -0.5340172648429871, -0.5194782614707947, -0.5049392580986023, -0.4904002845287323, -0.4758612811565399, -0.46132227778434753, -0.44678327441215515, -0.43224430084228516, -0.4177052974700928, -0.4031662940979004, -0.388627290725708, -0.374088317155838, -0.35954931378364563, -0.34501031041145325, -0.33047130703926086, -0.3159323036670685, -0.3013933002948761, -0.2868542969226837, -0.2723153233528137, -0.25777631998062134, -0.24323731660842896, -0.22869831323623657, -0.2141593098640442, -0.1996203064918518, -0.18508130311965942, -0.17054231464862823, -0.15600331127643585, -0.14146432280540466, -0.12692531943321228, -0.1123863160610199, -0.09784732013940811, -0.08330830931663513, -0.06876931339502335, -0.05423031374812126, -0.03969131410121918, -0.02515231817960739, -0.010613322257995605, 0.003925681114196777, 0.018464677035808563, 0.033003658056259155, 0.04754265397787094, 0.062081653624773026, 0.07662065327167511, 0.0911596491932869, 0.10569864511489868, 0.12023764848709106, 0.13477665185928345, 0.14931565523147583, 0.1638546586036682, 0.1783936470746994, 0.19293265044689178, 0.20747163891792297, 0.22201064229011536, 0.23654964566230774, 0.2510886490345001, 0.2656276226043701, 0.2801666259765625, 0.2947056293487549, 0.30924463272094727, 0.32378360629081726, 0.33832260966300964, 0.352861613035202, 0.3674006164073944, 0.3819396197795868]}, "gradients/conv0.res1.conv1.bias": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 2.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-5.182530403137207, -5.046627044677734, -4.910723686218262, -4.774820327758789, -4.638916969299316, -4.503013610839844, -4.367110252380371, -4.231206893920898, -4.095303535461426, -3.959400177001953, -3.8234968185424805, -3.687593460083008, -3.551690101623535, -3.4157867431640625, -3.279883623123169, -3.1439802646636963, -3.0080771446228027, -2.87217378616333, -2.7362704277038574, -2.6003670692443848, -2.464463710784912, -2.3285603523254395, -2.192657232284546, -2.0567538738250732, -1.9208505153656006, -1.784947156906128, -1.6490437984466553, -1.5131405591964722, -1.3772372007369995, -1.2413338422775269, -1.1054306030273438, -0.9695272445678711, -0.8336234092712402, -0.6977200508117676, -0.5618167519569397, -0.42591342329978943, -0.29001009464263916, -0.1541067361831665, -0.018203437328338623, 0.11769986152648926, 0.2536032199859619, 0.3895065486431122, 0.5254098773002625, 0.6613131761550903, 0.797216534614563, 0.9331198930740356, 1.0690231323242188, 1.2049264907836914, 1.340829849243164, 1.4767332077026367, 1.6126365661621094, 1.7485398054122925, 1.8844431638717651, 2.0203466415405273, 2.156249761581421, 2.2921531200408936, 2.428056478500366, 2.563959836959839, 2.6998631954193115, 2.835766553878784, 2.9716696739196777, 3.1075730323791504, 3.243476390838623, 3.3793797492980957, 3.5152831077575684]}, "gradients/conv0.res1.conv0.weight": {"_type": "histogram", "values": [3.0, 4.0, 42.0, 1962.0, 95.0, 44.0, 17.0, 11.0, 11.0, 11.0, 7.0, 10.0, 14.0, 8.0, 3.0, 2.0, 3.0, 5.0, 4.0, 1.0, 3.0, 3.0, 2.0, 1.0, 1.0, 4.0, 1.0, 3.0, 5.0, 0.0, 0.0, 2.0, 1.0, 1.0, 2.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 2.0, 0.0, 0.0, 1.0, 1.0, 0.0, 2.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 2.0, 3.0], "bins": [-0.09685119241476059, -0.07073353230953217, -0.04461587220430374, -0.018498212099075317, 0.007619448006153107, 0.033737100660800934, 0.059854768216609955, 0.08597243577241898, 0.1120900884270668, 0.13820774853229523, 0.16432541608810425, 0.19044306874275208, 0.2165607213973999, 0.24267837405204773, 0.26879605650901794, 0.29491370916366577, 0.3210313618183136, 0.3471490144729614, 0.37326669692993164, 0.39938434958457947, 0.4255020022392273, 0.4516196548938751, 0.47773730754852295, 0.5038549900054932, 0.5299726724624634, 0.5560903549194336, 0.582207977771759, 0.6083256602287292, 0.6344432830810547, 0.6605609655380249, 0.6866786479949951, 0.7127963304519653, 0.738913893699646, 0.7650315761566162, 0.7911491990089417, 0.8172668814659119, 0.8433845043182373, 0.8695021867752075, 0.8956198692321777, 0.921737551689148, 0.9478551745414734, 0.9739728569984436, 1.000090479850769, 1.0262081623077393, 1.0523258447647095, 1.0784435272216797, 1.1045610904693604, 1.1306787729263306, 1.1567964553833008, 1.182914137840271, 1.2090318202972412, 1.2351493835449219, 1.261267066001892, 1.2873847484588623, 1.3135024309158325, 1.3396201133728027, 1.3657376766204834, 1.3918553590774536, 1.4179730415344238, 1.4440906047821045, 1.4702082872390747, 1.496325969696045, 1.5224436521530151, 1.5485613346099854, 1.5746790170669556]}, "gradients/conv0.res1.conv0.bias": {"_type": "histogram", "values": [13.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-0.1249413937330246, 0.06666208803653717, 0.25826555490493774, 0.4498690366744995, 0.6414725184440613, 0.833076000213623, 1.0246795415878296, 1.2162830829620361, 1.4078865051269531, 1.5994899272918701, 1.7910934686660767, 1.9826970100402832, 2.1743004322052, 2.365903854370117, 2.5575075149536133, 2.7491109371185303, 2.9407143592834473, 3.1323177814483643, 3.3239212036132812, 3.5155248641967773, 3.7071282863616943, 3.8987317085266113, 4.090335369110107, 4.281938552856445, 4.473542213439941, 4.6651458740234375, 4.856749057769775, 5.0483527183532715, 5.239955902099609, 5.4315595626831055, 5.623163223266602, 5.814766883850098, 6.006369590759277, 6.197973251342773, 6.389576435089111, 6.581180095672607, 6.772783279418945, 6.964386940002441, 7.1559906005859375, 7.347594261169434, 7.5391974449157715, 7.730801105499268, 7.9224042892456055, 8.114007949829102, 8.305611610412598, 8.497215270996094, 8.688817977905273, 8.88042163848877, 9.072025299072266, 9.263628959655762, 9.455232620239258, 9.646835327148438, 9.838438987731934, 10.03004264831543, 10.221646308898926, 10.413249969482422, 10.604852676391602, 10.796456336975098, 10.988059997558594, 11.179662704467773, 11.37126636505127, 11.562870025634766, 11.754473686218262, 11.946077346801758, 12.137681007385254]}, "gradients/conv0.res0.conv1.weight": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 3.0, 5.0, 4.0, 6.0, 3.0, 7.0, 10.0, 17.0, 13.0, 14.0, 19.0, 24.0, 31.0, 58.0, 92.0, 75.0, 1674.0, 57.0, 45.0, 25.0, 21.0, 21.0, 13.0, 6.0, 5.0, 7.0, 4.0, 2.0, 6.0, 2.0, 6.0, 7.0, 3.0, 1.0, 4.0, 2.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 2.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0], "bins": [-0.438759446144104, -0.41996312141418457, -0.4011668264865875, -0.3823705017566681, -0.36357420682907104, -0.3447778820991516, -0.3259815573692322, -0.30718526244163513, -0.2883889675140381, -0.26959264278411865, -0.2507963478565216, -0.23200002312660217, -0.21320372819900513, -0.1944074034690857, -0.17561109364032745, -0.1568147838115692, -0.13801845908164978, -0.11922214925289154, -0.1004258394241333, -0.08162952214479446, -0.06283321231603622, -0.044036902487277985, -0.025240585207939148, -0.006444275379180908, 0.012352049350738525, 0.031148361042141914, 0.0499446727335453, 0.06874098628759384, 0.08753729611635208, 0.10633360594511032, 0.12512992322444916, 0.1439262330532074, 0.16272252798080444, 0.18151883780956268, 0.20031514763832092, 0.21911147236824036, 0.2379077672958374, 0.25670409202575684, 0.27550041675567627, 0.2942967116832733, 0.31309300661087036, 0.3318893313407898, 0.35068562626838684, 0.3694819509983063, 0.3882782459259033, 0.40707457065582275, 0.4258708953857422, 0.44466719031333923, 0.46346351504325867, 0.4822598397731781, 0.5010561347007751, 0.5198524594306946, 0.538648784160614, 0.5574450492858887, 0.5762413740158081, 0.5950376987457275, 0.613834023475647, 0.6326303482055664, 0.6514266729354858, 0.6702229380607605, 0.6890192627906799, 0.7078155875205994, 0.7266119122505188, 0.7454081773757935, 0.7642045021057129]}, "gradients/conv0.res0.conv1.bias": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-3.0658297538757324, -2.9636034965515137, -2.861377477645874, -2.7591512203216553, -2.6569249629974365, -2.554698944091797, -2.452472686767578, -2.3502464294433594, -2.2480201721191406, -2.145793914794922, -2.0435678958892822, -1.9413416385650635, -1.8391153812408447, -1.7368892431259155, -1.6346631050109863, -1.5324368476867676, -1.4302107095718384, -1.3279845714569092, -1.2257583141326904, -1.1235321760177612, -1.0213059186935425, -0.9190797805786133, -0.8168535828590393, -0.7146273851394653, -0.6124012470245361, -0.5101750493049622, -0.4079488515853882, -0.3057226836681366, -0.20349648594856262, -0.10127031803131104, 0.0009558796882629395, 0.10318207740783691, 0.20540833473205566, 0.30763453245162964, 0.4098607301712036, 0.5120868682861328, 0.6143131256103516, 0.7165392637252808, 0.8187654614448547, 0.9209916591644287, 1.0232179164886475, 1.1254440546035767, 1.2276703119277954, 1.3298964500427246, 1.4321227073669434, 1.5343488454818726, 1.6365749835968018, 1.7388012409210205, 1.8410273790359497, 1.943253517150879, 2.0454797744750977, 2.1477060317993164, 2.249932050704956, 2.352158308029175, 2.4543845653533936, 2.556610584259033, 2.658836841583252, 2.7610630989074707, 2.8632891178131104, 2.965515375137329, 3.067741632461548, 3.1699676513671875, 3.2721939086914062, 3.374420166015625, 3.4766464233398438]}, "gradients/conv0.res0.conv0.weight": {"_type": "histogram", "values": [2.0, 0.0, 0.0, 1.0, 0.0, 0.0, 2.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 2.0, 1.0, 2.0, 1.0, 0.0, 2.0, 0.0, 0.0, 1.0, 1.0, 4.0, 6.0, 3.0, 2.0, 4.0, 3.0, 5.0, 1.0, 10.0, 8.0, 18.0, 13.0, 11.0, 23.0, 14.0, 23.0, 29.0, 30.0, 34.0, 36.0, 53.0, 119.0, 1730.0, 33.0, 14.0, 8.0, 8.0, 4.0, 5.0, 5.0, 6.0, 6.0, 4.0, 3.0, 2.0, 1.0, 3.0, 0.0, 1.0, 1.0], "bins": [-0.8857665657997131, -0.8665657043457031, -0.8473647832870483, -0.8281639218330383, -0.8089630007743835, -0.7897621393203735, -0.7705612182617188, -0.7513603568077087, -0.732159435749054, -0.712958574295044, -0.6937576532363892, -0.6745567917823792, -0.6553558707237244, -0.6361550092697144, -0.6169540882110596, -0.5977532267570496, -0.5785523653030396, -0.5593515038490295, -0.5401505827903748, -0.5209497213363647, -0.50174880027771, -0.48254790902137756, -0.46334701776504517, -0.44414615631103516, -0.42494523525238037, -0.405744343996048, -0.3865434527397156, -0.3673425614833832, -0.3481416702270508, -0.3289407789707184, -0.309739887714386, -0.290539026260376, -0.2713381052017212, -0.2521372139453888, -0.2329363226890564, -0.213735431432724, -0.1945345401763916, -0.1753336489200592, -0.156132772564888, -0.1369318813085556, -0.11773097515106201, -0.09853008389472961, -0.07932919263839722, -0.060128308832645416, -0.04092741757631302, -0.02172652631998062, -0.002525642514228821, 0.016675248742103577, 0.03587612509727478, 0.05507701635360718, 0.07427790760993958, 0.09347879141569138, 0.11267968267202377, 0.13188058137893677, 0.15108145773410797, 0.17028234899044037, 0.18948324024677277, 0.20868413150310516, 0.22788502275943756, 0.24708589911460876, 0.26628679037094116, 0.28548768162727356, 0.30468857288360596, 0.32388946413993835, 0.34309035539627075]}, "gradients/conv0.res0.conv0.bias": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 9.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0], "bins": [-2.37070631980896, -2.3243587017059326, -2.278010845184326, -2.231663227081299, -2.1853156089782715, -2.138967990875244, -2.092620372772217, -2.0462725162506104, -1.999924898147583, -1.9535772800445557, -1.9072295427322388, -1.8608818054199219, -1.8145341873168945, -1.7681865692138672, -1.7218388319015503, -1.6754910945892334, -1.629143476486206, -1.5827958583831787, -1.5364481210708618, -1.490100383758545, -1.4437527656555176, -1.3974051475524902, -1.3510574102401733, -1.3047096729278564, -1.258362054824829, -1.2120144367218018, -1.1656666994094849, -1.119318962097168, -1.0729713439941406, -1.0266237258911133, -0.9802759885787964, -0.9339283108711243, -0.8875806331634521, -0.84123295545578, -0.7948852777481079, -0.7485376000404358, -0.7021899223327637, -0.6558422446250916, -0.6094945669174194, -0.5631468892097473, -0.5167992115020752, -0.4704515337944031, -0.42410385608673096, -0.37775617837905884, -0.3314085006713867, -0.2850608229637146, -0.23871314525604248, -0.19236546754837036, -0.14601778984069824, -0.09967011213302612, -0.053322434425354004, -0.006974756717681885, 0.039372920989990234, 0.08572059869766235, 0.13206827640533447, 0.1784159541130066, 0.2247636318206787, 0.27111130952835083, 0.31745898723602295, 0.36380666494369507, 0.4101543426513672, 0.4565020203590393, 0.5028496980667114, 0.5491973757743835, 0.5955450534820557]}, "gradients/conv0.conv0.weight": {"_type": "histogram", "values": [2.0, 0.0, 0.0, 1.0, 0.0, 3.0, 7.0, 3.0, 6.0, 13.0, 9.0, 12.0, 10.0, 8.0, 8.0, 13.0, 15.0, 16.0, 19.0, 18.0, 13.0, 12.0, 15.0, 9.0, 17.0, 12.0, 18.0, 19.0, 17.0, 22.0, 17.0, 11.0, 10.0, 14.0, 10.0, 5.0, 6.0, 3.0, 6.0, 0.0, 4.0, 1.0, 6.0, 5.0, 4.0, 2.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 2.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 2.0], "bins": [-2.097398042678833, -2.0214600563049316, -1.9455220699310303, -1.8695842027664185, -1.793646216392517, -1.7177082300186157, -1.641770362854004, -1.5658323764801025, -1.4898943901062012, -1.4139564037322998, -1.3380184173583984, -1.2620805501937866, -1.1861425638198853, -1.1102045774459839, -1.034266710281372, -0.9583287239074707, -0.8823907375335693, -0.806452751159668, -0.7305148243904114, -0.6545768976211548, -0.5786389112472534, -0.502700924873352, -0.42676299810409546, -0.35082507133483887, -0.2748870849609375, -0.19894912838935852, -0.12301117181777954, -0.04707321524620056, 0.028864741325378418, 0.1048026978969574, 0.18074065446853638, 0.25667858123779297, 0.33261632919311523, 0.4085542857646942, 0.4844922423362732, 0.5604301691055298, 0.6363681554794312, 0.7123061418533325, 0.7882440686225891, 0.8641819953918457, 0.9401199817657471, 1.0160579681396484, 1.0919959545135498, 1.1679338216781616, 1.243871808052063, 1.3198097944259644, 1.3957476615905762, 1.4716856479644775, 1.547623634338379, 1.6235616207122803, 1.6994996070861816, 1.7754374742507935, 1.8513754606246948, 1.9273134469985962, 2.003251314163208, 2.0791893005371094, 2.1551272869110107, 2.231065273284912, 2.3070032596588135, 2.382941246032715, 2.458878993988037, 2.5348169803619385, 2.61075496673584, 2.686692953109741, 2.7626309394836426]}, "gradients/conv0.conv0.bias": {"_type": "histogram", "values": [1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 2.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0], "bins": [-3.139845848083496, -3.037537097930908, -2.9352283477783203, -2.8329198360443115, -2.7306110858917236, -2.6283023357391357, -2.525993824005127, -2.423685073852539, -2.321376323699951, -2.2190675735473633, -2.1167588233947754, -2.0144503116607666, -1.9121415615081787, -1.8098328113555908, -1.7075241804122925, -1.6052155494689941, -1.5029067993164062, -1.4005980491638184, -1.29828941822052, -1.1959807872772217, -1.0936720371246338, -0.9913633465766907, -0.8890546560287476, -0.7867459654808044, -0.6844372749328613, -0.5821285843849182, -0.4798198938369751, -0.377511203289032, -0.27520251274108887, -0.17289382219314575, -0.07058513164520264, 0.03172355890274048, 0.1340322494506836, 0.2363409399986267, 0.3386496305465698, 0.44095832109451294, 0.543267011642456, 0.6455757021903992, 0.7478843927383423, 0.8501930832862854, 0.9525017738342285, 1.0548105239868164, 1.1571191549301147, 1.259427785873413, 1.361736536026001, 1.4640452861785889, 1.5663539171218872, 1.6686625480651855, 1.7709712982177734, 1.8732800483703613, 1.9755886793136597, 2.077897310256958, 2.180206060409546, 2.282514810562134, 2.3848233222961426, 2.4871320724487305, 2.5894408226013184, 2.6917495727539062, 2.794058322906494, 2.896366834640503, 2.998675584793091, 3.1009843349456787, 3.2032928466796875, 3.3056015968322754, 3.4079103469848633]}, "loss": 3.0170717239379883, "surr_loss": -0.05515294522047043, "vf_loss": 30.744943618774414, "entropy": 0.22699379920959473, "her rewards": 33.938594818115234, "_runtime": 4754, "_timestamp": 1620517971, "_step": 62}']}, 'wandb-events.jsonl': {'offset': 140, 'content': ['{"system.cpu": 62.87, "system.memory": 51.38, "system.disk": 56.6, "system.proc.memory.availableMB": 7848.71, "system.proc.memory.rssMB": 34.55, "system.proc.memory.percent": 0.21, "system.proc.cpu.threads": 14.53, "system.network.sent": 17909594, "system.network.recv": 27729715, "_wandb": true, "_timestamp": 1620517944, "_runtime": 4727}']}}}}
+2021-05-08 16:53:22,388 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:53:22,388 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:53:31,730 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:53:37,565 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:53:37,565 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:53:52,755 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:53:52,755 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:54:05,234 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:54:05,659 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:54:05,660 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:54:05,671 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:54:07,976 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:54:07,976 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:54:23,150 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:54:23,150 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:54:38,419 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:54:38,419 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:54:38,737 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:54:53,599 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:54:53,599 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:55:08,792 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:55:08,792 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:55:12,251 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:55:18,011 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:55:18,021 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:55:18,032 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:55:24,013 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:55:24,013 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:55:39,167 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:55:39,167 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:55:45,715 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:55:54,328 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:55:54,328 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:56:09,501 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:56:09,501 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:56:19,228 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:56:24,774 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:56:24,774 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:56:31,491 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:56:31,492 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:56:31,501 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:56:39,947 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:56:39,947 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:56:52,704 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:56:55,108 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:56:55,108 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:57:10,295 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:57:10,295 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:57:25,454 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:57:25,454 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:57:26,231 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:57:40,674 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:57:40,674 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:57:45,094 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:57:45,108 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:57:45,121 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:57:55,920 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:57:55,920 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:57:59,746 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:58:11,094 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:58:11,094 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:58:26,270 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:58:26,270 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:58:33,263 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:58:41,447 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:58:41,447 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:58:56,606 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:58:56,606 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:58:59,224 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 16:58:59,224 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 16:58:59,233 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 16:59:06,808 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:59:11,845 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:59:11,846 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:59:27,026 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:59:27,026 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:59:40,340 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 16:59:42,205 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:59:42,205 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 16:59:57,464 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 16:59:57,464 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 17:00:12,756 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 17:00:12,757 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 17:00:13,847 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 17:00:17,036 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 17:00:17,047 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 17:00:17,058 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 17:00:27,942 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: stop_status
+2021-05-08 17:00:27,942 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: stop_status
+2021-05-08 17:00:35,476 WARNING MainThread:28248 [internal.py:wandb_internal():146] Internal process interrupt: 1
+2021-05-08 17:00:35,524 DEBUG   SenderThread:28248 [sender.py:send():173] send: history
+2021-05-08 17:00:35,524 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 17:00:35,532 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: poll_exit
+2021-05-08 17:00:35,534 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 17:00:35,534 DEBUG   SenderThread:28248 [sender.py:send():173] send: telemetry
+2021-05-08 17:00:35,728 DEBUG   SenderThread:28248 [sender.py:send():173] send: exit
+2021-05-08 17:00:35,729 INFO    SenderThread:28248 [sender.py:send_exit():265] handling exit code: 255
+2021-05-08 17:00:35,729 INFO    SenderThread:28248 [sender.py:send_exit():273] send defer
+2021-05-08 17:00:35,730 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: poll_exit
+2021-05-08 17:00:35,731 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: defer
+2021-05-08 17:00:35,731 INFO    HandlerThread:28248 [handler.py:handle_request_defer():135] handle defer: 0
+2021-05-08 17:00:35,732 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: defer
+2021-05-08 17:00:35,732 INFO    SenderThread:28248 [sender.py:send_request_defer():282] handle sender defer: 0
+2021-05-08 17:00:35,732 INFO    SenderThread:28248 [sender.py:send_request_defer():318] send defer: 1
+2021-05-08 17:00:35,733 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: defer
+2021-05-08 17:00:35,733 INFO    HandlerThread:28248 [handler.py:handle_request_defer():135] handle defer: 1
+2021-05-08 17:00:35,857 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: defer
+2021-05-08 17:00:35,857 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: poll_exit
+2021-05-08 17:00:35,858 INFO    SenderThread:28248 [sender.py:send_request_defer():282] handle sender defer: 1
+2021-05-08 17:00:35,858 INFO    SenderThread:28248 [sender.py:send_request_defer():318] send defer: 2
+2021-05-08 17:00:35,858 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: poll_exit
+2021-05-08 17:00:35,860 DEBUG   SenderThread:28248 [sender.py:send():173] send: stats
+2021-05-08 17:00:35,860 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: defer
+2021-05-08 17:00:35,861 INFO    HandlerThread:28248 [handler.py:handle_request_defer():135] handle defer: 2
+2021-05-08 17:00:35,862 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: defer
+2021-05-08 17:00:35,862 INFO    SenderThread:28248 [sender.py:send_request_defer():282] handle sender defer: 2
+2021-05-08 17:00:35,862 INFO    SenderThread:28248 [sender.py:send_request_defer():318] send defer: 3
+2021-05-08 17:00:35,863 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: defer
+2021-05-08 17:00:35,864 INFO    HandlerThread:28248 [handler.py:handle_request_defer():135] handle defer: 3
+2021-05-08 17:00:35,873 DEBUG   SenderThread:28248 [sender.py:send():173] send: summary
+2021-05-08 17:00:35,892 INFO    SenderThread:28248 [sender.py:_save_file():808] saving file wandb-summary.json with policy end
+2021-05-08 17:00:35,893 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: defer
+2021-05-08 17:00:35,893 INFO    SenderThread:28248 [sender.py:send_request_defer():282] handle sender defer: 3
+2021-05-08 17:00:35,893 INFO    SenderThread:28248 [sender.py:send_request_defer():318] send defer: 4
+2021-05-08 17:00:35,894 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: defer
+2021-05-08 17:00:35,894 INFO    HandlerThread:28248 [handler.py:handle_request_defer():135] handle defer: 4
+2021-05-08 17:00:35,894 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: defer
+2021-05-08 17:00:35,894 INFO    SenderThread:28248 [sender.py:send_request_defer():282] handle sender defer: 4
+2021-05-08 17:00:35,973 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: poll_exit
+2021-05-08 17:00:36,333 INFO    SenderThread:28248 [sender.py:send_request_defer():318] send defer: 5
+2021-05-08 17:00:36,333 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: poll_exit
+2021-05-08 17:00:36,336 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: defer
+2021-05-08 17:00:36,336 INFO    HandlerThread:28248 [handler.py:handle_request_defer():135] handle defer: 5
+2021-05-08 17:00:36,336 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: defer
+2021-05-08 17:00:36,336 INFO    SenderThread:28248 [sender.py:send_request_defer():282] handle sender defer: 5
+2021-05-08 17:00:36,336 INFO    SenderThread:28248 [sender.py:send_request_defer():318] send defer: 6
+2021-05-08 17:00:36,337 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: defer
+2021-05-08 17:00:36,337 INFO    HandlerThread:28248 [handler.py:handle_request_defer():135] handle defer: 6
+2021-05-08 17:00:36,337 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: defer
+2021-05-08 17:00:36,337 INFO    SenderThread:28248 [sender.py:send_request_defer():282] handle sender defer: 6
+2021-05-08 17:00:36,444 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: poll_exit
+2021-05-08 17:00:36,903 INFO    SenderThread:28248 [sender.py:send_request_defer():318] send defer: 7
+2021-05-08 17:00:36,903 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: poll_exit
+2021-05-08 17:00:36,904 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: defer
+2021-05-08 17:00:36,904 INFO    HandlerThread:28248 [handler.py:handle_request_defer():135] handle defer: 7
+2021-05-08 17:00:36,904 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: defer
+2021-05-08 17:00:36,905 INFO    SenderThread:28248 [sender.py:send_request_defer():282] handle sender defer: 7
+2021-05-08 17:00:36,905 INFO    SenderThread:28248 [sender.py:send_request_defer():318] send defer: 8
+2021-05-08 17:00:36,905 DEBUG   SenderThread:28248 [sender.py:send():173] send: final
+2021-05-08 17:00:36,906 DEBUG   SenderThread:28248 [sender.py:send():173] send: footer
+2021-05-08 17:00:36,906 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: defer
+2021-05-08 17:00:36,906 INFO    HandlerThread:28248 [handler.py:handle_request_defer():135] handle defer: 8
+2021-05-08 17:00:36,907 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: defer
+2021-05-08 17:00:36,907 INFO    SenderThread:28248 [sender.py:send_request_defer():282] handle sender defer: 8
+2021-05-08 17:00:37,007 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: poll_exit
+2021-05-08 17:00:37,008 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: poll_exit
+2021-05-08 17:00:37,118 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: poll_exit
+2021-05-08 17:00:37,118 DEBUG   SenderThread:28248 [sender.py:send_request():183] send_request: poll_exit
+2021-05-08 17:00:37,124 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: get_summary
+2021-05-08 17:00:37,146 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: sampled_history
+2021-05-08 17:00:37,150 DEBUG   HandlerThread:28248 [handler.py:handle_request():121] handle_request: shutdown
+2021-05-08 17:00:37,150 INFO    HandlerThread:28248 [handler.py:finish():629] shutting down handler
+2021-05-08 17:00:37,907 INFO    WriterThread:28248 [datastore.py:close():258] close: C:\Users\User\Documents\CS182\Project\CS182RLProject\wandb\run-20210508_153337-18lzh74x\run-18lzh74x.wandb
+2021-05-08 17:00:38,129 INFO    SenderThread:28248 [sender.py:finish():912] shutting down sender
+2021-05-08 17:00:38,134 INFO    MainThread:28248 [internal.py:handle_exit():78] Internal process exited
